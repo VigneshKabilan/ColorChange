@@ -35,9 +35,30 @@ document.getElementById('palette4').addEventListener('click', function() {
 });
 
 document.getElementById('palette5').addEventListener('click', function() {
+    console.log("elements[i].classList");
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {task: "addClass5"});
     });
 });
 
 
+// apply background
+document.getElementById('bgpalette1').addEventListener('click', function() {
+    console.log("elements[i].classListbg");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "addBgClass1"});
+    });
+});
+
+  
+
+// document.getElementById('applyBG').addEventListener('click', function() {
+//     var bgcolor = document.getElementById('bgcolor').value;
+//     applyBgColor(bgcolor);
+//   });
+
+//   function applyBgColor(bgcolor) {
+//     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//         chrome.tabs.sendMessage(tabs[0].id, {bgcolor: bgcolor});
+//     });
+//   }

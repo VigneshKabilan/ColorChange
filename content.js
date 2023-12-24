@@ -1,4 +1,8 @@
 chrome.runtime.onMessage.addListener(function(request) {
+    let htmlBody = document.getElementsByClassName('BToiNc');
+    let topBar = document.getElementById('extabar');
+    let toppBar = document.getElementById('pTwnEc');
+    let googleSearchBg = document.getElementsByClassName('sfbg');
     let elements = document.getElementsByClassName('DKV0Md');
     if (request.task == "addClass1") {
         let classesToRemove = ["NE2", "NE3", "NE4", "NE5"];
@@ -34,5 +38,18 @@ chrome.runtime.onMessage.addListener(function(request) {
             elements[i].classList.remove(...classesToRemove);
             elements[i].classList.add('NE5');
         }
+        
+}
+
+// bg add
+
+else if (request.task == 'addBgClass1') {
+    document.body.classList.add('BG1');
+    topBar.classList.add('BG1');
+    toppBar.style.background = "#b0d4d4";
+    for (let i = 0; i < htmlBody.length; i++) {
+        htmlBody[i].style.backgroundColor = "#b0d4d4";
+    googleSearchBg[i].style.background = "#b0d4d4";
+    }
 }
 });
