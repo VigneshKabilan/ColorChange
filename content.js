@@ -1,19 +1,38 @@
 chrome.runtime.onMessage.addListener(function(request) {
-    var elements1 = document.getElementsByClassName('DKV0Md');
-    for (var i = 0; i < elements1.length; i++) {
-        elements1[i].style.color = request.color1;
+    let elements = document.getElementsByClassName('DKV0Md');
+    if (request.task == "addClass1") {
+        let classesToRemove = ["NE2", "NE3", "NE4", "NE5"];
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove(...classesToRemove);
+            elements[i].classList.add('NE1');
+        }
     }
-
-    var elements2 = document.getElementsByClassName('r025kc');
-    for (var i = 0; i < elements2.length; i++) {
-        elements2[i].style.color = request.color2;
-    }
-});
-
-// Check if the current page is a Google search results page
-if (window.location.href.includes('www.google.com/search')) {
-    var elements3 = document.getElementsByTagName('h3');
-    for (var i = 0; i < elements3.length; i++) {
-        elements3[i].classList.add('GoogleSearchH3');
-    }
+    else if (request.task == 'addClass2') {
+        let classesToRemove = ["NE1", "NE3", "NE4", "NE5"];
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove(...classesToRemove);
+            elements[i].classList.add('NE2');
+        }
 }
+    else if (request.task == 'addClass3') {
+        let classesToRemove = ["NE1", "NE2", "NE4", "NE5"];
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove(...classesToRemove);
+            elements[i].classList.add('NE3');
+        }
+}
+    else if (request.task == 'addClass4') {
+        let classesToRemove = ["NE1", "NE3", "NE2", "NE5"];
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove(...classesToRemove);
+            elements[i].classList.add('NE4');
+        }
+}
+    else if (request.task == 'addClass5') {
+        let classesToRemove = ["NE1", "NE3", "NE4", "NE2"];
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove(...classesToRemove);
+            elements[i].classList.add('NE5');
+        }
+}
+});

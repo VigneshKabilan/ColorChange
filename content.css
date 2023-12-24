@@ -1,9 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Sacramento&display=swap');
 
-.GoogleSearchH3 {
-  line-height: calc(20px + 20vh);
-  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+.NE1 {
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500;
   color: #fff6a9;
-  font-family: "Sacramento", cursive;
-  text-align: center;
+}
+
+.NE2{
+  text-shadow: 0 0 5px #ff1493, 0 0 15px #ff1493;
+  color: #ffbbf8;
+}
+
+.NE3{
+  text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF;
+  color: #d6ffff;
+}
+
+.NE4{
+  text-shadow: 0 0 5px #008000, 0 0 15px #008a00;
+  color: #ccfecc;
+
+}
+
+.NE5{
+  text-shadow: 0 0 5px #FF0000, 0 0 15px #FF0000;
+  color: #ffcbd2;
 }
