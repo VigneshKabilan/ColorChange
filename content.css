@@ -1,29 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Sacramento&display=swap');
 
 .NE1 {
   text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500;
-  color: #fff6a9;
+  color: #fff6a9 !important ;
+  font-family: 'Gruppo', cursive !important;
 }
 
 .NE2{
   text-shadow: 0 0 5px #ff1493, 0 0 15px #ff1493;
-  color: #ffbbf8;
+  color: #ffbbf8 !important ;
+  font-family: 'Inter', cursive !important;
 }
 
 .NE3{
   text-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF;
-  color: #d6ffff;
+  color: #d6ffff !important ;
+  font-family: 'JetBrains Mono', monospace !important;
 }
 
 .NE4{
   text-shadow: 0 0 5px #008000, 0 0 15px #008a00;
-  color: #ccfecc;
+  color: #ccfecc !important ;
+  font-family: 'Macondo', cursive !important;
 
 }
 
 .NE5{
   text-shadow: 0 0 5px #FF0000, 0 0 15px #FF0000;
-  color: #ffcbd2;
+  color: #ffcbd2 !important;
+  font-family: 'Rosario', sans-serif !important;
 }
 
 .BG1{
