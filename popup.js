@@ -62,3 +62,17 @@ document.getElementById('bgpalette1').addEventListener('click', function() {
 //         chrome.tabs.sendMessage(tabs[0].id, {bgcolor: bgcolor});
 //     });
 //   }
+
+
+// This code for combination according to system Theme
+
+let combinDiv = document.getElementById("combinDiv");
+
+const el = document.querySelector('#theme-indicator');
+
+const darkTheme = window.matchMedia("(prefers-color-scheme: dark");
+
+const darkThemeDiv = document.getElementById('darkTheme');
+const lightThemeDiv = document.getElementById('lightTheme');
+
+darkTheme.matches ? (darkThemeDiv.style.display = 'block') : (lightThemeDiv.style.display = 'block');

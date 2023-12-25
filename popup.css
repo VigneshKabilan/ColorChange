@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Alatsi&family=Irish+Grover&family=Lexend+Deca:wght@300&family=Montserrat:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alatsi&family=Inter&family=Irish+Grover&family=Lexend+Deca:wght@300&family=Montserrat:wght@100;400&display=swap');
+
+body {
+    width: 350px;
+}
+
+.heading-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: Irish Grover;
+    font-size: 12px;
+}
+
+.sub-Header-div {
+    font-family: Inter;
+    font-size: 15px;
+}
+
+.input-color-div {
+    display: flex;
+    column-gap: 12px;
+    align-items: center;
+}
+
+.palette {
+    width: 100px;
+    height: 50px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.apply-button {
+    padding: 1px 7px 4px 7px;
+    font-size: 12px;
+    font-family: cursive;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(84, 105, 212);
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgb(84, 105, 212) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+}
+
+.apply-button:hover {
+    background-color: rgb(72, 90, 181);
+}
+
+.apply-button:active {
+    opacity: 0.9;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #fff;
+    background: #333;
+  }
+
+  .heading-div {
+    text-shadow: 0px 4px 4px hsl(98, 100%, 29%);
+  }
+
+  input {
+    inline-size: 35px;
+    padding: 0;
+    background-color: #333;
+    border-color: #333;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: #333;
+    background: #fff;
+  }
+
+  .heading-div {
+    text-shadow: 0px 4px 4px #c1b36f;
+  }
+
+  input {
+    inline-size: 35px;
+    padding: 0;
+    background-color: #fff;
+    border-color: #fff;
+  }
+}

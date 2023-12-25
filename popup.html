@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      .palette {
-          width: 100px;
-          height: 50px;
-          margin-top: 10px;
-          cursor: pointer;
-      }
-    </style>
+    <link rel="styleSheet" href="popup.css"/>
   </head>
   <body>
-      <h1>Choose text colors</h1>
-      <label for="color1">Color 1:</label><br>
-      <input type="color" id="color1" name="color1"><br>
-      <label for="color2">Color 2:</label><br>
-      <input type="color" id="color2" name="color2"><br>
-      <button id="apply">Apply</button>
-      <h2>Recommended combinations</h2>
-      <div class="palette" id="palette1" style="background: linear-gradient(to right, #f0d010 50%, #f1f1bd 50%);"></div>
-      <div class="palette" id="palette2" style="background: linear-gradient(to right, #f010d6 50%, #efbdf1 50%);"></div>
-      <div class="palette" id="palette3" style="background: linear-gradient(to right, #10f0e5 50%, #bdf1ed 50%);"></div>
-      <div class="palette" id="palette4" style="background: linear-gradient(to right, #10f057 50%, #bdf1be 50%);"></div>
-      <div class="palette" id="palette5" style="background: linear-gradient(to right, #f01010 50%, #f1bdbd 50%);"></div>
+      <div>
+        <!--Heading-->
+        <div class="heading-div">
+          <h1>Style Changer For Google</h1>
+        </div>
+        <!--Div for User to select the styles-->
+        <div class="sub-Header-div">
+          <h3>Text Styler: </h3>
+          <div class="input-color-div">
+            <label for="color1">Color 1:</label><br>
+            <input type="color" id="color1" name="color1"><br>
+            <label for="color2">Color 2:</label><br>
+            <input type="color" id="color2" name="color2"><br>
+            <button class="apply-button" id="apply">Apply</button>
+          </div>
+        </div>
+        <!--Div for recommentaion according to system Theme-->
+        <div class="sub-Header-div">
+          <h3>Try These Combinations: </h3>
+          <div id="combinDiv">
+            <!--Div for Dark mode colors-->
+            <div id="darkTheme" style="display: none;">
+              <div class="palette" id="palette1" style="background: linear-gradient(to right, #f0d010 50%, #f1f1bd 50%);"></div>
+              <div class="palette" id="palette2" style="background: linear-gradient(to right, #f010d6 50%, #efbdf1 50%);"></div>
+              <div class="palette" id="palette3" style="background: linear-gradient(to right, #10f0e5 50%, #bdf1ed 50%);"></div>
+              <div class="palette" id="palette4" style="background: linear-gradient(to right, #10f057 50%, #bdf1be 50%);"></div>
+              <div class="palette" id="palette5" style="background: linear-gradient(to right, #f01010 50%, #f1bdbd 50%);"></div>
+            </div>
+            <!--Div for Light mode colors-->
+            <div id="lightTheme" style="display: none;">lightTheme</div>
+          </div>
+        </div>
+      </div>
       <!-- background colour -->
       <h1>Choose Background colors</h1>
       <div class="palette" id="bgpalette1" style="background: #b0d4d4;"></div>
