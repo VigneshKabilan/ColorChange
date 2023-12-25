@@ -39,6 +39,31 @@ document.getElementById('palette5').addEventListener('click', function() {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {task: "addClass5"});
     });
+});document.getElementById('palette6').addEventListener('click', function() {
+    console.log("elements[i].classList");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass6"});
+    });
+});document.getElementById('palette7').addEventListener('click', function() {
+    console.log("elements[i].classList");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass7"});
+    });
+});document.getElementById('palette8').addEventListener('click', function() {
+    console.log("elements[i].classList");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass8"});
+    });
+});document.getElementById('palette9').addEventListener('click', function() {
+    console.log("elements[i].classList");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass9"});
+    });
+});document.getElementById('palette10').addEventListener('click', function() {
+    console.log("elements[i].classList");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass10"});
+    });
 });
 
 

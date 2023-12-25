@@ -30,6 +30,39 @@
   font-family: 'Rosario', sans-serif !important;
 }
 
+.NE6 {
+  text-shadow: 0 0 5px #fff39b, 0 0 15px #fff39b, 0 0 35px #fff39b;
+  color: #ffb300 !important ;
+  font-family: 'Gruppo', cursive !important;
+}
+
+.NE7{
+  text-shadow: 0 0 5px #ffbbf8, 0 0 15px #ffbbf8, 0 0 35px #ffbbf8;
+  color: #ff1493 !important ;
+  font-family: 'Inter', cursive !important;
+}
+
+.NE8{
+  text-shadow: 0 0 5px #d6ffff, 0 0 15px #d6ffff,0 0 35px #d6ffff;
+  color: #0077ff !important ;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.NE9{
+  text-shadow: 0 0 5px #ccfecc, 0 0 15px #ccfecc, 0 0 35px #ccfecc;
+  color: #008a00 !important ;
+  font-family: 'Macondo', cursive !important;
+
+}
+
+.NE10{
+  text-shadow: 0 0 5px #ffcbd2, 0 0 15px #ffcbd2,0 0 35px #ffcbd2;
+  color: #FF0000 !important;
+  font-family: 'Rosario', sans-serif !important;
+}
+
+
+
 .BG1{
   background-color: #b0d4d4;
 }

@@ -42,38 +42,73 @@ chrome.runtime.onMessage.addListener(function(request) {
     let elements = document.getElementsByClassName('DKV0Md');
     if (request.task == "addClass1") {
         // array of links to be injected
-        let classesToRemove = ["NE2", "NE3", "NE4", "NE5"];
+        let classesToRemove = ["NE2", "NE3", "NE4", "NE5","NE6","NE7","NE8","NE9","NE10"];
         for (let i = 0; i < elements.length; i++) {
             elements[i].classList.remove(...classesToRemove);
             elements[i].classList.add('NE1');
         }
     }
     else if (request.task == 'addClass2') {
-        let classesToRemove = ["NE1", "NE3", "NE4", "NE5"];
+        let classesToRemove = ["NE1", "NE3", "NE4", "NE5","NE6","NE7","NE8","NE9","NE10"];
         for (let i = 0; i < elements.length; i++) {
             elements[i].classList.remove(...classesToRemove);
             elements[i].classList.add('NE2');
         }
     }
     else if (request.task == 'addClass3') {
-        let classesToRemove = ["NE1", "NE2", "NE4", "NE5"];
+        let classesToRemove = ["NE2", "NE1", "NE4", "NE5","NE6","NE7","NE8","NE9","NE10"];
         for (let i = 0; i < elements.length; i++) {
             elements[i].classList.remove(...classesToRemove);
             elements[i].classList.add('NE3');
         }
     }
     else if (request.task == 'addClass4') {
-        let classesToRemove = ["NE1", "NE3", "NE2", "NE5"];
+        let classesToRemove = ["NE2", "NE3", "NE1", "NE5","NE6","NE7","NE8","NE9","NE10"];
         for (let i = 0; i < elements.length; i++) {
             elements[i].classList.remove(...classesToRemove);
             elements[i].classList.add('NE4');
         }
     }
     else if (request.task == 'addClass5') {
-        let classesToRemove = ["NE1", "NE3", "NE4", "NE2"];
+        let classesToRemove = ["NE2", "NE3", "NE4", "NE1","NE6","NE7","NE8","NE9","NE10"];
         for (let i = 0; i < elements.length; i++) {
             elements[i].classList.remove(...classesToRemove);
             elements[i].classList.add('NE5');
+        }
+    }
+else if (request.task == 'addClass6') {
+        let classesToRemove = ["NE2", "NE3", "NE4", "NE5","NE1","NE7","NE8","NE9","NE10"];
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove(...classesToRemove);
+            elements[i].classList.add('NE6');
+        }
+    }
+else if (request.task == 'addClass7') {
+        let classesToRemove = ["NE2", "NE3", "NE4", "NE5","NE6","NE1","NE8","NE9","NE10"];
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove(...classesToRemove);
+            elements[i].classList.add('NE7');
+        }
+    }
+else if (request.task == 'addClass8') {
+        let classesToRemove = ["NE2", "NE3", "NE4", "NE5","NE6","NE7","NE1","NE9","NE10"];
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove(...classesToRemove);
+            elements[i].classList.add('NE8');
+        }
+    }
+else if (request.task == 'addClass9') {
+        let classesToRemove = ["NE2", "NE3", "NE4", "NE5","NE6","NE7","NE8","NE1","NE10"];
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove(...classesToRemove);
+            elements[i].classList.add('NE9');
+        }
+    }
+else if (request.task == 'addClass10') {
+        let classesToRemove = ["NE2", "NE3", "NE4", "NE5","NE6","NE7","NE8","NE9","NE1"];
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove(...classesToRemove);
+            elements[i].classList.add('NE10');
         }
     }
 
