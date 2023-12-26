@@ -66,7 +66,31 @@ document.getElementById('palette5').addEventListener('click', function() {
     });
 });
 
+// For Font style
 
+document.getElementById('font1').addEventListener('click', function(tabs) {
+    console.log("Inter font");
+})
+
+document.getElementById('font2').addEventListener('click', function(tabs) {
+    console.log("JetBrains Mono font");
+})
+
+document.getElementById('font3').addEventListener('click', function(tabs) {
+    console.log("Montserrat font");
+})
+
+document.getElementById('font4').addEventListener('click', function(tabs) {
+    console.log("Gruppo font");
+})
+
+document.getElementById('font5').addEventListener('click', function(tabs) {
+    console.log("Rosario font");
+})
+
+document.getElementById('font6').addEventListener('click', function(tabs) {
+    console.log("Macondo Swash Caps font");
+})
 // apply background
 document.getElementById('bgpalette1').addEventListener('click', function() {
     console.log("elements[i].classListbg");
@@ -100,4 +124,4 @@ const darkTheme = window.matchMedia("(prefers-color-scheme: dark");
 const darkThemeDiv = document.getElementById('darkTheme');
 const lightThemeDiv = document.getElementById('lightTheme');
 
-darkTheme.matches ? (darkThemeDiv.style.display = 'block') : (lightThemeDiv.style.display = 'block');
+darkTheme.matches ? (darkThemeDiv.style.display = 'grid') : (lightThemeDiv.style.display = 'grid');

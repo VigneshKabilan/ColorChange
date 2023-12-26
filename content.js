@@ -76,35 +76,35 @@ chrome.runtime.onMessage.addListener(function(request) {
             elements[i].classList.add('NE5');
         }
     }
-else if (request.task == 'addClass6') {
+    else if (request.task == 'addClass6') {
         let classesToRemove = ["NE2", "NE3", "NE4", "NE5","NE1","NE7","NE8","NE9","NE10"];
         for (let i = 0; i < elements.length; i++) {
             elements[i].classList.remove(...classesToRemove);
             elements[i].classList.add('NE6');
         }
     }
-else if (request.task == 'addClass7') {
+    else if (request.task == 'addClass7') {
         let classesToRemove = ["NE2", "NE3", "NE4", "NE5","NE6","NE1","NE8","NE9","NE10"];
         for (let i = 0; i < elements.length; i++) {
             elements[i].classList.remove(...classesToRemove);
             elements[i].classList.add('NE7');
         }
     }
-else if (request.task == 'addClass8') {
+    else if (request.task == 'addClass8') {
         let classesToRemove = ["NE2", "NE3", "NE4", "NE5","NE6","NE7","NE1","NE9","NE10"];
         for (let i = 0; i < elements.length; i++) {
             elements[i].classList.remove(...classesToRemove);
             elements[i].classList.add('NE8');
         }
     }
-else if (request.task == 'addClass9') {
+    else if (request.task == 'addClass9') {
         let classesToRemove = ["NE2", "NE3", "NE4", "NE5","NE6","NE7","NE8","NE1","NE10"];
         for (let i = 0; i < elements.length; i++) {
             elements[i].classList.remove(...classesToRemove);
             elements[i].classList.add('NE9');
         }
     }
-else if (request.task == 'addClass10') {
+    else if (request.task == 'addClass10') {
         let classesToRemove = ["NE2", "NE3", "NE4", "NE5","NE6","NE7","NE8","NE9","NE1"];
         for (let i = 0; i < elements.length; i++) {
             elements[i].classList.remove(...classesToRemove);

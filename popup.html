@@ -2,6 +2,12 @@
 <html>
   <head>
     <link rel="styleSheet" href="popup.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
   </head>
   <body>
       <div>
@@ -25,7 +31,7 @@
           <h3>Try These Combinations: </h3>
           <div id="combinDiv">
             <!--Div for Dark mode colors-->
-            <div id="darkTheme" style="display: none;">
+            <div class="container-div" id="darkTheme" style="display: none;">
               <div class="palette" id="palette1" style="background: linear-gradient(to right, #f0d010 50%, #f1f1bd 50%);"></div>
               <div class="palette" id="palette2" style="background: linear-gradient(to right, #f010d6 50%, #efbdf1 50%);"></div>
               <div class="palette" id="palette3" style="background: linear-gradient(to right, #10f0e5 50%, #bdf1ed 50%);"></div>
@@ -33,13 +39,25 @@
               <div class="palette" id="palette5" style="background: linear-gradient(to right, #f01010 50%, #f1bdbd 50%);"></div>
             </div>
             <!--Div for Light mode colors-->
-            <div id="lightTheme" style="display: none;">
-            <div class="palette" id="palette6" style="background: linear-gradient(to right, #f0d010 50%, #f1f1bd 50%);"></div>
+            <div class="container-div" id="lightTheme" style="display: none;">
+              <div class="palette" id="palette6" style="background: linear-gradient(to right, #f0d010 50%, #f1f1bd 50%);"></div>
               <div class="palette" id="palette7" style="background: linear-gradient(to right, #f010d6 50%, #efbdf1 50%);"></div>
               <div class="palette" id="palette8" style="background: linear-gradient(to right, #10f0e5 50%, #bdf1ed 50%);"></div>
               <div class="palette" id="palette9" style="background: linear-gradient(to right, #10f057 50%, #bdf1be 50%);"></div>
               <div class="palette" id="palette10" style="background: linear-gradient(to right, #f01010 50%, #f1bdbd 50%);"></div>
-              </div>
+            </div>
+          </div>
+        </div>
+        <!--Div For Changing Font Style-->
+        <div class="sub-Header-div">
+          <h3>Style The Text: </h3>
+          <div class="font-div">
+            <p id="font1" style="font-family: 'Inter';">Inter</p>
+            <p id="font2" style="font-family: 'JetBrains Mono';">JetBrains Mono</p>
+            <p id="font3" style="font-family: 'Montserrat';">Montserrat</p>
+            <p id="font4" style="font-family: 'Gruppo';">Gruppo</p>
+            <p id="font5" style="font-family: 'Rosario';">Rosario</p>
+            <p id="font6" style="font-family: 'Macondo';">Macondo Swash Caps</p>
           </div>
         </div>
       </div>
