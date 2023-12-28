@@ -14,6 +14,10 @@ document.getElementById('palette1').addEventListener('click', function() {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {task: "addClass1"});
     });
+    // Store the last selected color option
+    chrome.storage.sync.set({lastColorOption: 'addClass1'}, function() {
+        console.log('Last color option saved as addClass1');
+    });
 });
 
 document.getElementById('palette2').addEventListener('click', function() {
@@ -69,27 +73,39 @@ document.getElementById('palette5').addEventListener('click', function() {
 // For Font style
 
 document.getElementById('font1').addEventListener('click', function(tabs) {
-    console.log("Inter font");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "f1"});
+    });
 })
 
 document.getElementById('font2').addEventListener('click', function(tabs) {
-    console.log("JetBrains Mono font");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "f2"});
+    });
 })
 
 document.getElementById('font3').addEventListener('click', function(tabs) {
-    console.log("Montserrat font");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "f3"});
+    });
 })
 
 document.getElementById('font4').addEventListener('click', function(tabs) {
-    console.log("Gruppo font");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "f4"});
+    });
 })
 
 document.getElementById('font5').addEventListener('click', function(tabs) {
-    console.log("Rosario font");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "f5"});
+    });
 })
 
 document.getElementById('font6').addEventListener('click', function(tabs) {
-    console.log("Macondo Swash Caps font");
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "f6"});
+    });
 })
 // apply background
 document.getElementById('bgpalette1').addEventListener('click', function() {
