@@ -26,10 +26,17 @@ body {
 }
 
 .palette {
-    width: 100px;
-    height: 50px;
-    margin-top: 10px;
     cursor: pointer;
+}
+
+.palette1 {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.palette1:hover {
+    border: 1px solid white;
+
 }
 
 .apply-button {
@@ -63,6 +70,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: stretch;
+    column-gap: 20px;
 }
 
 @media (prefers-color-scheme: dark) {
