@@ -26,27 +26,57 @@ let elements2 = document.getElementsByClassName('r025kc');
 let sitenames = document.getElementsByClassName('VuuXrf');
 
 chrome.storage.sync.get(['lastColorOption'], function(result) {
+
+    function changeInTextColorRefresh(clr, text) {
+        let classesToRemove = ["NE1", "NE2", "NE3", "NE4", "NE5", "NE6", "NE7", "NE8", "NE9", "NE10", "NE11", "NE12"];
+        for (let i = 0; i < elements1.length; i++) {
+            elements1[i].classList.remove(...classesToRemove);
+            sitenames[i].classList.remove(...classesToRemove);
+            elements1[i].classList.add(clr);
+            sitenames[i].classList.add(clr);
+            elements2[i].style.color = text;
+        }
+    }
+
     if (result.lastColorOption && window.location.hostname.includes('google.com')) {
         // Apply the last selected color option
         if (result.lastColorOption === 'addClass1') {
-            let classesToRemove = ["NE2", "NE3", "NE4", "NE5", "NE6", "NE7", "NE8", "NE9", "NE10","NE11"];
-            for (let i = 0; i < elements1.length; i++) {
-                elements1[i].classList.remove(...classesToRemove);
-                sitenames[i].classList.remove(...classesToRemove);
-                elements1[i].classList.add('NE1');
-                sitenames[i].classList.add('NE1');
-                elements2[i].style.color = '#e4ae35';
-            }
+            changeInTextColorRefresh('NE1', '#e4ae35');
+            
         } else if (result.lastColorOption === 'addClass2') {
-            let classesToRemove = ["NE1", "NE3", "NE4", "NE5", "NE6", "NE7", "NE8", "NE9", "NE10", "NE11"];
-            for (let i = 0; i < elements1.length; i++) {
-                elements1[i].classList.remove(...classesToRemove);
-                elements1[i].classList.add('NE2');
-                sitenames[i].classList.remove(...classesToRemove);
-                sitenames[i].classList.add('NE2');
-                elements2[i].style.color = '#eed59f';
-            }
-        }  
+            changeInTextColorRefresh('NE2', '#eed59f');
+        
+        } else if (result.lastColorOption === 'addClass3') {
+            changeInTextColorRefresh('NE3', '#dfc7ab');
+        
+        } else if (result.lastColorOption === 'addClass4') {
+            changeInTextColorRefresh('NE4', '#dfc7ab');
+        
+        } else if (result.lastColorOption === 'addClass5') {
+            changeInTextColorRefresh('NE5', '#d0c9be');
+        
+        } else if (result.lastColorOption === 'addClass6') {
+            changeInTextColorRefresh('NE6', '#10F057');
+        
+        } else if (result.lastColorOption === 'addClass7') {
+            changeInTextColorRefresh('NE7', '#10F057');
+        
+        } else if (result.lastColorOption === 'addClass8') {
+            changeInTextColorRefresh('NE8', '#10F057');
+        
+        } else if (result.lastColorOption === 'addClass9') {
+            changeInTextColorRefresh('NE9', '#10F057');
+        
+        } else if (result.lastColorOption === 'addClass10') {
+            changeInTextColorRefresh('NE10', '#10F057');
+        
+        } else if (result.lastColorOption === 'addClass11') {
+            changeInTextColorRefresh('NE11', '#10F057');
+        
+        } else if (result.lastColorOption === 'addClass12') {
+            changeInTextColorRefresh('NE12', '#10F057');
+        
+        }
         // Add more conditions for other color options
     }
 });
@@ -70,133 +100,81 @@ chrome.runtime.onMessage.addListener(function (request) {
     let googleSearchBg = document.getElementsByClassName('yuRUbf');
     let googleSearchBgSmall = document.getElementsByClassName('Hdw6tb');
 
+    function changeInTextColor(clr, text) {
+        let classesToRemove = ["NE1", "NE2", "NE3", "NE4", "NE5", "NE6", "NE7", "NE8", "NE9", "NE10", "NE11", "NE12"];
+        for (let i = 0; i < elements1.length; i++) {
+            elements1[i].classList.remove(...classesToRemove);
+            sitenames[i].classList.remove(...classesToRemove);
+            elements1[i].classList.add(clr);
+            sitenames[i].classList.add(clr);
+            elements2[i].style.color = text;
+        }
+    }
+
+    function changeTextFamily(family) {
+        for (let i = 0; i < elements1.length; i++) {
+            elements1[i].style.fontFamily = family;
+        }
+        for (let i = 0; i < elements2.length; i++) {
+            elements2[i].style.fontFamily = family;
+        }
+    }
+
     if (request.task == "addClass1") {
         // array of links to be injected
-        let classesToRemove = ["NE2", "NE3", "NE4", "NE5", "NE6", "NE7", "NE8", "NE9", "NE10","NE11"];
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].classList.remove(...classesToRemove);
-            sitenames[i].classList.remove(...classesToRemove);
-            elements1[i].classList.add('NE1');
-            sitenames[i].classList.add('NE1');
-            elements2[i].style.color = '#e4ae35';
-        }
+        changeInTextColor('NE1', '#e4ae35');
+
     } else if (request.task == 'addClass2') {
-        let classesToRemove = ["NE1", "NE3", "NE4", "NE5", "NE6", "NE7", "NE8", "NE9", "NE10", "NE11"];
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].classList.remove(...classesToRemove);
-            elements1[i].classList.add('NE2');
-            sitenames[i].classList.remove(...classesToRemove);
-            sitenames[i].classList.add('NE2');
-            elements2[i].style.color = '#eed59f';
-        }
+        changeInTextColor('NE2', '#eed59f');
+
     } else if (request.task == 'addClass3') {
-        let classesToRemove = ["NE2", "NE1", "NE4", "NE5", "NE6", "NE7", "NE8", "NE9", "NE10", "NE11"];
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].classList.remove(...classesToRemove);
-            elements1[i].classList.add('NE3');
-            sitenames[i].classList.remove(...classesToRemove);
-            sitenames[i].classList.add('NE3');
-            elements2[i].style.color = '#dfc7ab'
-        }
+        changeInTextColor('NE3', '#dfc7ab');
+        
     } else if (request.task == 'addClass4') {
-        let classesToRemove = ["NE2", "NE3", "NE1", "NE5", "NE6", "NE7", "NE8", "NE9", "NE10", "NE11"];
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].classList.remove(...classesToRemove);
-            elements1[i].classList.add('NE4');
-            sitenames[i].classList.remove(...classesToRemove);
-            sitenames[i].classList.add('NE4');
-            elements2[i].style.color = '#fed898'
-        }
+        changeInTextColor('NE4', '#dfc7ab');
+    
     } else if (request.task == 'addClass5') {
-        let classesToRemove = ["NE2", "NE3", "NE4", "NE1", "NE6", "NE7", "NE8", "NE9", "NE10", "NE11"];
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].classList.remove(...classesToRemove);
-            elements1[i].classList.add('NE5');
-            sitenames[i].classList.remove(...classesToRemove);
-            sitenames[i].classList.add('NE5');
-            elements2[i].style.color = '#d0c9be';
-        }
+        changeInTextColor('NE5', '#d0c9be');
+        
     } else if (request.task == 'addClass11') {
-        let classesToRemove = ["NE2", "NE3", "NE4", "NE1", "NE6", "NE7", "NE8", "NE9", "NE10","NE5", "NE11"];
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].classList.remove(...classesToRemove);
-            elements1[i].classList.add('NE11');
-            sitenames[i].classList.remove(...classesToRemove);
-            sitenames[i].classList.add('NE11');
-            elements2[i].style.color = '#10F057';
-        }
+        changeInTextColor('NE11', '#10F057');
+    
     } else if (request.task == 'addClass6') {
-        let classesToRemove = ["NE2", "NE3", "NE4", "NE5", "NE1", "NE7", "NE8", "NE9", "NE10", "NE11"];
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].classList.remove(...classesToRemove);
-            elements1[i].classList.add('NE6');
-        }
+        changeInTextColor('NE6', '#10F057');
+
     } else if (request.task == 'addClass7') {
-        let classesToRemove = ["NE2", "NE3", "NE4", "NE5", "NE6", "NE1", "NE8", "NE9", "NE10", "NE11"];
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].classList.remove(...classesToRemove);
-            elements1[i].classList.add('NE7');
-        }
+        changeInTextColor('NE7', '#10F057');
+
     } else if (request.task == 'addClass8') {
-        let classesToRemove = ["NE2", "NE3", "NE4", "NE5", "NE6", "NE7", "NE1", "NE9", "NE10", "NE11"];
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].classList.remove(...classesToRemove);
-            elements1[i].classList.add('NE8');
-        }
+        changeInTextColor('NE8', '#10F057');
+
     } else if (request.task == 'addClass9') {
-        let classesToRemove = ["NE2", "NE3", "NE4", "NE5", "NE6", "NE7", "NE8", "NE1", "NE10", "NE11"];
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].classList.remove(...classesToRemove);
-            elements1[i].classList.add('NE9');
-        }
+        changeInTextColor('NE9', '#10F057');
+
     } else if (request.task == 'addClass10') {
-        let classesToRemove = ["NE2", "NE3", "NE4", "NE5", "NE6", "NE7", "NE8", "NE9", "NE1", "NE11"];
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].classList.remove(...classesToRemove);
-            elements1[i].classList.add('NE10');
-        }
+        changeInTextColor('NE10', '#10F057');
+
+    } else if (request.text == 'addClass12') {
+        changeInTextColor('NE12', '#10F057');
+
     } else if (request.task === 'f1') {
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].style.fontFamily = 'Inter, cursive';
-        }
-        for (let i = 0; i < elements2.length; i++) {
-            elements2[i].style.fontFamily = 'Inter, cursive';
-        }
+        changeTextFamily('Inter, cursive');
+
     } else if (request.task === 'f2') {
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].style.fontFamily = 'JetBrains Mono, monospace';
-        }
-        for (let i = 0; i < elements2.length; i++) {
-            elements2[i].style.fontFamily = 'JetBrains Mono, monospace';
-        }
+        changeTextFamily('JetBrains Mono, monospace');
+        
     } else if (request.task === 'f3') {
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].style.fontFamily = 'Montserrat, sans-serif';
-        }
-        for (let i = 0; i < elements2.length; i++) {
-            elements2[i].style.fontFamily = 'Montserrat, sans-serif';
-        }
+        changeTextFamily('Montserrat, sans-serif');
+    
     } else if (request.task === 'f4') {
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].style.fontFamily = 'cursive';
-        }
-        for (let i = 0; i < elements2.length; i++) {
-            elements2[i].style.fontFamily = 'cursive';
-        }
+        changeTextFamily('cursive');
+        
     } else if (request.task === 'f5') {
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].style.fontFamily = 'Rosario, sans-serif';
-        }
-        for (let i = 0; i < elements2.length; i++) {
-            elements2[i].style.fontFamily = 'Rosario, sans-serif';
-        }
+        changeTextFamily('Rosario, sans-serif');
+        
     } else if (request.task === 'f6') {
-        for (let i = 0; i < elements1.length; i++) {
-            elements1[i].style.fontFamily = 'Macondo, cursive'
-        }
-        for (let i = 0; i < elements2.length; i++) {
-            elements2[i].style.fontFamily = 'Macondo, cursive'
-        }
+        changeTextFamily('Macondo, cursive');
+        
     }
 
 // bg add
