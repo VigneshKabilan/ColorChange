@@ -87,6 +87,13 @@ document.getElementById('palette10').addEventListener('click', function() {
     });
 });
 
+document.getElementById('palette11').addEventListener('click', function() {
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass11"});
+    });
+    chrome.storage.sync.set({lastColorOption: 'addClass11'});
+});
+
 // For Font style
 
 document.getElementById('font1').addEventListener('click', function(tabs) {

@@ -66,16 +66,16 @@ const callback = function (mutationsList, observer) {
                         changeInTextColor('NE1', '#e4ae35');
 
                     } else if (result.lastColorOption === 'addClass2') {
-                        changeInTextColor('NE2', '#eed59f');
+                        changeInTextColor('NE2', '#c5afff');
 
                     } else if (result.lastColorOption === 'addClass3') {
-                        changeInTextColor('NE3', '#dfc7ab');
+                        changeInTextColor('NE3', '#4eb7ff');
 
                     } else if (result.lastColorOption === 'addClass4') {
-                        changeInTextColor('NE4', '#dfc7ab');
+                        changeInTextColor('NE4', '#e1fe7b');
 
                     } else if (result.lastColorOption === 'addClass5') {
-                        changeInTextColor('NE5', '#d0c9be');
+                        changeInTextColor('NE5', '#ff85dc');
 
                     } else if (result.lastColorOption === 'addClass6') {
                         changeInTextColor('NE6', '#10F057');
@@ -145,16 +145,16 @@ chrome.runtime.onMessage.addListener(function (request) {
         changeInTextColor('NE1', '#e4ae35');
 
     } else if (request.task == 'addClass2') {
-        changeInTextColor('NE2', '#eed59f');
+        changeInTextColor('NE2', '#c5afff');
 
     } else if (request.task == 'addClass3') {
-        changeInTextColor('NE3', '#dfc7ab');
+        changeInTextColor('NE3', '#4eb7ff');
 
     } else if (request.task == 'addClass4') {
-        changeInTextColor('NE4', '#dfc7ab');
+        changeInTextColor('NE4', '#e1fe7b');
 
     } else if (request.task == 'addClass5') {
-        changeInTextColor('NE5', '#d0c9be');
+        changeInTextColor('NE5', '#ff85dc');
 
     } else if (request.task == 'addClass11') {
         changeInTextColor('NE11', '#10F057');
