@@ -8,6 +8,7 @@ function applyColors(color1, color2) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {task:"apply",color1: color1, color2: color2});
   });
+  chrome.storage.sync.set({lastColorOption: 'addClass0',primary:color1,secondary : color2});
 }
 
 // light and dark mode switch
@@ -237,7 +238,6 @@ document.getElementById('font6').addEventListener('click', function(tabs) {
     chrome.storage.sync.set({lastFontOption: 'Macondo, cursive'});
 })
 
-// set font "retained"
 
 chrome.storage.sync.get(['lastFontOption'], function(result) {
     if (result.lastFontOption === 'Inter, cursive') {
@@ -255,26 +255,8 @@ chrome.storage.sync.get(['lastFontOption'], function(result) {
     }
 });
 
-// apply background
-document.getElementById('bgpalette1').addEventListener('click', function() {
-    console.log("elements[i].classListbg");
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addBgClass1"});
-    });
-});
 
-  
 
-// document.getElementById('applyBG').addEventListener('click', function() {
-//     var bgcolor = document.getElementById('bgcolor').value;
-//     applyBgColor(bgcolor);
-//   });
-
-//   function applyBgColor(bgcolor) {
-//     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-//         chrome.tabs.sendMessage(tabs[0].id, {bgcolor: bgcolor});
-//     });
-//   }
 
 // set border "on click"
 var availablePalettes = [

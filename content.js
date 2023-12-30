@@ -22,6 +22,7 @@ function injectLink(link) {
 links.forEach(injectLink);
 
 let elements1 = document.getElementsByClassName('DKV0Md');
+let allEmTags = document.querySelectorAll('em');
 let elements2 = document.getElementsByClassName('r025kc');
 let sitenames = document.getElementsByClassName('VuuXrf');
 let gpttexts = document.getElementsByClassName('prose');
@@ -37,6 +38,9 @@ function changeInTextColor(clr, text) {
         sitenames[i].classList.add(clr);
         elements2[i].style.color = text;
     }
+    for (let i = 0; i < allEmTags.length; i++) {
+        allEmTags[i].style.color = text;
+    }
 }
 
 //Function to change font to texts
@@ -50,14 +54,14 @@ function changeTextFamily(family) {
 }
 
 function changeTextColorGpt(col1, col2) {
-    for(let i = 0; i < gpttexts.length; i++) {
+    for (let i = 0; i < gpttexts.length; i++) {
         gpttexts[i].style.color = col1;
-        gpttexts[i].style.textShadow = '0 0 5px ' + col2; 
+        gpttexts[i].style.textShadow = '0 0 5px ' + col2;
     }
 }
 
 function changeTextColorGptOur(colo) {
-    for(let i = 0;i < ourtexts.length; i++) {
+    for (let i = 0; i < ourtexts.length; i++) {
         ourtexts[i].style.color = colo;
     }
 }
@@ -76,7 +80,28 @@ const callback = function (mutationsList, observer) {
 
                 if (result.lastColorOption && (window.location.hostname.includes('google.com') || window.location.hostname.includes('chat.openai.com'))) {
                     // Apply the last selected color option
-                    if (result.lastColorOption === 'addClass1') {
+                    if (result.lastColorOption === 'addClass0') {
+                        let classesToRemove = ["NE1", "NE2", "NE3", "NE4", "NE5"];
+                        chrome.storage.sync.get(['primary', 'secondary'], function (data) {
+                            // Use the retrieved values
+                            var color1 = data.primary;
+                            var color2 = data.secondary;
+                            for (var i = 0; i < elements1.length; i++) {
+                                elements1[i].classList.remove(...classesToRemove);
+                                elements1[i].style.color = color1;
+                            }
+                            for (var i = 0; i < elements2.length; i++) {
+                                elements2[i].style.color = color2;
+                            }
+                            for (let i = 0; i < gpttexts.length; i++) {
+                                gpttexts[i].style.color = color1;
+                            }
+                            for (let i = 0; i < ourtexts.length; i++) {
+                                ourtexts[i].style.color = color2;
+                            }
+                        });
+
+                    } else if (result.lastColorOption === 'addClass1') {
                         changeInTextColor('NE1', '#e4ae35');
                         changeTextColorGpt('#fff6a9', '#ffa500');
                         changeTextColorGptOur('#e4ae35');
@@ -102,9 +127,9 @@ const callback = function (mutationsList, observer) {
                         changeTextColorGptOur('#ff85dc');
 
                     } else if (result.lastColorOption === 'addClass6') {
-                        changeInTextColor('NE6', '#212060');
+                        changeInTextColor('NE6', '#143da6');
                         changeTextColorGpt('#60bd5c', '#38ac34');
-                        changeTextColorGptOur('#212060');
+                        changeTextColorGptOur('#143da6');
 
                     } else if (result.lastColorOption === 'addClass7') {
                         changeInTextColor('NE7', '#ED1D26');
@@ -112,9 +137,9 @@ const callback = function (mutationsList, observer) {
                         changeTextColorGptOur('#ED1D26');
 
                     } else if (result.lastColorOption === 'addClass8') {
-                        changeInTextColor('NE8', '#472875');
+                        changeInTextColor('NE8', '#6418d9');
                         changeTextColorGpt('#A07BB9', '#b884db');
-                        changeTextColorGptOur('#472875');
+                        changeTextColorGptOur('#6418d9');
 
                     } else if (result.lastColorOption === 'addClass9') {
                         changeInTextColor('NE9', '#104374');
@@ -122,9 +147,9 @@ const callback = function (mutationsList, observer) {
                         changeTextColorGptOur('#104374');
 
                     } else if (result.lastColorOption === 'addClass10') {
-                       changeInTextColor('NE10', '#39A43C');
+                        changeInTextColor('NE10', '#217823');
                         changeTextColorGpt('#E8BC8D', '#ffcd98');
-                        changeTextColorGptOur('#39A43C');
+                        changeTextColorGptOur('#217823');
 
                     } else if (result.lastColorOption === 'addClass11') {
                         changeInTextColor('NE11', '#10F057');
@@ -142,7 +167,7 @@ const callback = function (mutationsList, observer) {
             chrome.storage.sync.get(['lastFontOption'], function (result) {
 
 
-                if (result.lastFontOption && window.location.hostname.includes('google.com')) {
+                if (result.lastFontOption && (window.location.hostname.includes('google.com') || window.location.hostname.includes('chat.openai.com'))) {
                     // Apply the last selected font option
                     changeTextFamily(result.lastFontOption);
                     // Add more conditions for other color options
@@ -176,15 +201,7 @@ chrome.runtime.onMessage.addListener(function (request) {
         }
     }
 
-    let htmlBody = document.getElementsByClassName('BToiNc');
-    let topBar = document.getElementById('extabar');
-    let toppBar = document.getElementsByClassName('sfbg');
-    let googleSearchBg = document.getElementsByClassName('yuRUbf');
-    let googleSearchBgSmall = document.getElementsByClassName('Hdw6tb');
-
-
     if (request.task === "addClass1") {
-        // array of links to be injected
         changeInTextColor('NE1', '#e4ae35');
         changeTextColorGpt('#fff6a9', '#ffa500');
         changeTextColorGptOur('#e4ae35');
@@ -215,9 +232,9 @@ chrome.runtime.onMessage.addListener(function (request) {
         changeTextColorGptOur('#10F057');
 
     } else if (request.task === 'addClass6') {
-        changeInTextColor('NE6', '#212060');
+        changeInTextColor('NE6', '#143da6');
         changeTextColorGpt('#60bd5c', '#38ac34');
-        changeTextColorGptOur('#212060');
+        changeTextColorGptOur('#143da6');
 
     } else if (request.task === 'addClass7') {
         changeInTextColor('NE7', '#ED1D26');
@@ -225,9 +242,9 @@ chrome.runtime.onMessage.addListener(function (request) {
         changeTextColorGptOur('#ED1D26');
 
     } else if (request.task === 'addClass8') {
-        changeInTextColor('NE8', '#472875');
+        changeInTextColor('NE8', '#6418d9');
         changeTextColorGpt('#A07BB9', '#b884db');
-        changeTextColorGptOur('#472875');
+        changeTextColorGptOur('#6418d9');
 
     } else if (request.task === 'addClass9') {
         changeInTextColor('NE9', '#104374');
@@ -235,9 +252,9 @@ chrome.runtime.onMessage.addListener(function (request) {
         changeTextColorGptOur('#104374');
 
     } else if (request.task === 'addClass10') {
-        changeInTextColor('NE10', '#39A43C');
+        changeInTextColor('NE10', '#217823');
         changeTextColorGpt('#E8BC8D', '#ffcd98');
-        changeTextColorGptOur('#39A43C');
+        changeTextColorGptOur('#217823');
 
     } else if (request.task === 'addClass12') {
         changeInTextColor('NE12', '#000');
@@ -262,17 +279,5 @@ chrome.runtime.onMessage.addListener(function (request) {
     } else if (request.task === 'f6') {
         changeTextFamily('Macondo, cursive');
 
-    }
-
-// bg add
-    else if (request.task == 'addBgClass1') {
-        document.body.style.backgroundColor = '#b0d4d4';
-        toppBar[0].style.backgroundColor = "#b0d4d4";
-        for (let i = 0; i < googleSearchBg.length; i++) {
-            googleSearchBg[i].style.backgroundColor = "#b0d4d4";
-        }
-        for (let i = 0; i < googleSearchBgSmall.length; i++) {
-            googleSearchBgSmall[i].style.backgroundColor = "#b0d4d4";
-        }
     }
 });

@@ -24,42 +24,39 @@
   color: #ffcbd2 !important;
 }
 
-.NE6 {
-  text-shadow: 0 0 5px #38ac34, 0 0 15px #38ac34;
-  color: #60bd5c!important ;
-}
-
-.NE7{
-  text-shadow: 0 0 5px #fdda71, 0 0 15px #fdda71;
-  color: #F6D162 !important ;
-}
-
-.NE8{
-  text-shadow: 0 0 5px #b884db, 0 0 15px #b884db;
-  color: #A07BB9 !important ;
-}
-
-.NE9{
-  text-shadow: 0 0 5px #7bcfe7, 0 0 15px #7bcfe7;
-  color: #62CBE7 !important ;
-}
-
-.NE10{
-  text-shadow: 0 0 5px #ffcd98, 0 0 15px #ffcd98;
-  color: #E8BC8D !important;
-}
-
 .NE11 {
   text-shadow: 0 0 5px #9114ff, 0 0 15px #9114ff;
   color: #dabbff !important;
 }
 
+.NE6 {
+  text-shadow: 0 0 5px #b0e5ad;
+  color: #43993b !important ;
+}
+
+.NE7{
+  text-shadow: 0 0 5px #ead087;
+  color: #b59924 !important ;
+}
+
+.NE8{
+  text-shadow: 0 0 5px #c38ee9;
+  color: #792fa2 !important ;
+}
+
+.NE9{
+  text-shadow: 0 0 5px #B0D4D4FF;
+  color: #298da4 !important ;
+}
+
+.NE10{
+  text-shadow: 0 0 5px #f1cea7;
+  color: #a27b54 !important;
+}
+
 .NE12 {
-  text-shadow: 0 0 5px #808080, 0 0 15px #808080;
-  color: #808080 !important;
+  text-shadow: 0 0 5px #a3a2a2;
+  color: #514f4b !important;
 }
 
 
-.BG1{
-  background-color: #b0d4d4;
-}
