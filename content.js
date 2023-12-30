@@ -59,7 +59,6 @@ const callback = function (mutationsList, observer) {
         if (mutation.type === 'childList') {
             chrome.storage.sync.get(['lastColorOption'], function (result) {
 
-
                 if (result.lastColorOption && window.location.hostname.includes('google.com')) {
                     // Apply the last selected color option
                     if (result.lastColorOption === 'addClass1') {
@@ -114,12 +113,12 @@ const callback = function (mutationsList, observer) {
         }
     }
 };
-
 // Create an observer instance linked to the callback function
 const observer = new MutationObserver(callback);
 
 // Start observing the target node for configured mutations
 observer.observe(targetNode, config);
+
 
 chrome.runtime.onMessage.addListener(function (request) {
     if (request.task === "apply") {

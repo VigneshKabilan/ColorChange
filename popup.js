@@ -60,7 +60,6 @@ function applyLightMode() {
 
 //colors for Dark Mode
 
-if(isChecked){
     document.getElementById('palette1').addEventListener('click', function() {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass1"});
@@ -103,11 +102,8 @@ if(isChecked){
         });
         chrome.storage.sync.set({lastColorOption: 'addClass6'});
     });
-}
 
 //Colors for Light Mode
-
-else if(isChecked == false){
     document.getElementById('palette6').addEventListener('click', function() {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass6"});
@@ -137,15 +133,7 @@ else if(isChecked == false){
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass10"});
         });
     });
-    
-    document.getElementById('palette11').addEventListener('click', function() {
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass11"});
-        });
-        chrome.storage.sync.set({lastColorOption: 'addClass11'});
-    });
-    
-}
+
 // For Font style
 
 document.getElementById('font1').addEventListener('click', function(tabs) {
@@ -210,16 +198,3 @@ document.getElementById('bgpalette1').addEventListener('click', function() {
 //     });
 //   }
 
-
-// This code for combination according to system Theme
-
-let combinDiv = document.getElementById("combinDiv");
-
-const el = document.querySelector('#theme-indicator');
-
-const darkTheme = window.matchMedia("(prefers-color-scheme: dark");
-
-const darkThemeDiv = document.getElementById('darkTheme');
-const lightThemeDiv = document.getElementById('lightTheme');
-
-darkTheme.matches ? (darkThemeDiv.style.display = 'grid') : (lightThemeDiv.style.display = 'grid');
