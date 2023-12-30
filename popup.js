@@ -100,7 +100,7 @@ function applyLightMode() {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass11"});
         });
-        chrome.storage.sync.set({lastColorOption: 'addClass6'});
+        chrome.storage.sync.set({lastColorOption: 'addClass11'});
     });
 
 //Colors for Light Mode
@@ -108,32 +108,43 @@ function applyLightMode() {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass6"});
         });
+        chrome.storage.sync.set({lastColorOption: 'addClass6'});
     });
     
     document.getElementById('palette7').addEventListener('click', function() {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass7"});
         });
+        chrome.storage.sync.set({lastColorOption: 'addClass7'});
     });
     
     document.getElementById('palette8').addEventListener('click', function() {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass8"});
         });
+        chrome.storage.sync.set({lastColorOption: 'addClass8'});
     });
     
     document.getElementById('palette9').addEventListener('click', function() {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass9"});
         });
+        chrome.storage.sync.set({lastColorOption: 'addClass9'});
     });
     
     document.getElementById('palette10').addEventListener('click', function() {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass10"});
         });
+        chrome.storage.sync.set({lastColorOption: 'addClass10'});
     });
 
+    document.getElementById('palette12').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass12"});
+        });
+        chrome.storage.sync.set({lastColorOption: 'addClass12'});
+    });
 // For Font style
 
 document.getElementById('font1').addEventListener('click', function(tabs) {

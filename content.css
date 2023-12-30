@@ -25,33 +25,38 @@
 }
 
 .NE6 {
-  text-shadow: 0 0 5px #aaccff, 0 0 15px #aaccff;
-  color: #ff1d58!important ;
+  text-shadow: 0 0 5px #38ac34, 0 0 15px #38ac34;
+  color: #60bd5c!important ;
 }
 
 .NE7{
-  text-shadow: 0 0 5px #ffbbf8, 0 0 15px #ffbbf8, 0 0 35px #ffbbf8;
-  color: #ff1493 !important ;
+  text-shadow: 0 0 5px #fdda71, 0 0 15px #fdda71;
+  color: #F6D162 !important ;
 }
 
 .NE8{
-  text-shadow: 0 0 5px #d6ffff, 0 0 15px #d6ffff,0 0 35px #d6ffff;
-  color: #0077ff !important ;
+  text-shadow: 0 0 5px #b884db, 0 0 15px #b884db;
+  color: #A07BB9 !important ;
 }
 
 .NE9{
-  text-shadow: 0 0 5px #ccfecc, 0 0 15px #ccfecc, 0 0 35px #ccfecc;
-  color: #008a00 !important ;
+  text-shadow: 0 0 5px #7bcfe7, 0 0 15px #7bcfe7;
+  color: #62CBE7 !important ;
 }
 
 .NE10{
-  text-shadow: 0 0 5px #ffcbd2, 0 0 15px #ffcbd2,0 0 35px #ffcbd2;
-  color: #FF0000 !important;
+  text-shadow: 0 0 5px #ffcd98, 0 0 15px #ffcd98;
+  color: #E8BC8D !important;
 }
 
 .NE11 {
   text-shadow: 0 0 5px #9114ff, 0 0 15px #9114ff;
   color: #dabbff !important;
+}
+
+.NE12 {
+  text-shadow: 0 0 5px #808080, 0 0 15px #808080;
+  color: #808080 !important;
 }
 
 
