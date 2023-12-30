@@ -17,21 +17,49 @@
         </div>
         <!--Div for User to select the styles-->
         <div class="sub-Header-div">
-          <h3>Text Styler: </h3>
+          <div class="mode-setting-title">
+           <h3>Text Styler: </h3> 
+           <label for="theme" class="theme">
+            <span>Light</span>
+            <span class="theme__toggle-wrap">
+              <input
+                type="checkbox"
+                class="theme__toggle"
+                id="theme"
+                role="switch"
+                name="theme"
+              />
+              <span class="theme__fill"></span>
+              <span class="theme__icon">
+                <span class="theme__icon-part"></span
+                ><span class="theme__icon-part"></span
+                ><span class="theme__icon-part"></span
+                ><span class="theme__icon-part"></span
+                ><span class="theme__icon-part"></span
+                ><span class="theme__icon-part"></span
+                ><span class="theme__icon-part"></span
+                ><span class="theme__icon-part"></span
+                ><span class="theme__icon-part"></span>
+              </span>
+            </span>
+            <span>Dark</span>
+          </label>
+          </div>
+          
           <div class="input-color-div">
             <label for="color1">Color 1:</label><br>
-            <input type="color" id="color1" name="color1"><br>
+            <input type="color" id="color1" name="color1" class="select_color"><br>
             <label for="color2">Color 2:</label><br>
-            <input type="color" id="color2" name="color2"><br>
+            <input type="color" id="color2" name="color2" class="select_color"><br>
             <button class="apply-button" id="apply">Apply</button>
           </div>
         </div>
         <!--Div for recommentaion according to system Theme-->
-        <div class="sub-Header-div">
+        <div class="sub-Header-div try-combo-div">
           <h3>Try These Combinations: </h3>
           <div id="combinDiv">
             <!--Div for Dark mode colors-->
-            <div class="container-div" id="darkTheme" style="display: none;">
+            <div class="container-div dark-div" id="darkTheme">
               <div class="palette" id="palette1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
                   <rect width="50" height="50" fill="#fff6a9"/>
@@ -70,41 +98,41 @@
               </div>
             </div>
             <!--Div for Light mode colors-->
-            <div class="container-div" id="lightTheme" style="display: none;">
+            <div class="container-div light-div" id="lightTheme">
               <div class="palette" id="palette6" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                  <rect width="50" height="50" fill="#BDF1BE"/>
-                  <path d="M0 0H50V50L0 0Z" fill="#10F057"/>
+                  <rect width="50" height="50" fill="#60BD5C"/>
+                  <path d="M0 0H50V50L0 0Z" fill="#212060"/>
                 </svg>
               </div>
               <div class="palette" id="palette7" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                  <rect width="50" height="50" fill="#BDF1BE"/>
-                  <path d="M0 0H50V50L0 0Z" fill="#10F057"/>
+                  <rect width="50" height="50" fill="#F6D162"/>
+                  <path d="M0 0H50V50L0 0Z" fill="#ED1D26"/>
                 </svg>
               </div>
               <div class="palette" id="palette8" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                  <rect width="50" height="50" fill="#BDF1BE"/>
-                  <path d="M0 0H50V50L0 0Z" fill="#10F057"/>
-                </svg>
-              </div>
-              <div class="palette" id="palette9" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                  <rect width="50" height="50" fill="#BDF1BE"/>
-                  <path d="M0 0H50V50L0 0Z" fill="#10F057"/>
-                </svg>
-              </div>
-              <div class="palette" id="palette10" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                  <rect width="50" height="50" fill="#BDF1BE"/>
-                  <path d="M0 0H50V50L0 0Z" fill="#10F057"/>
+                  <rect width="50" height="50" fill="#A07BB9"/>
+                  <path d="M0 0H50V50L0 0Z" fill="#472875"/>
                 </svg>
               </div>
               <div class="palette" id="palette12" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                  <rect width="50" height="50" fill="#BDF1BE"/>
-                  <path d="M0 0H50V50L0 0Z" fill="#10F057"/>
+                  <rect width="50" height="50" fill="grey"/>
+                  <path d="M0 0H50V50L0 0Z" fill="black"/>
+                </svg>
+              </div>
+              <div class="palette" id="palette9" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+                  <rect width="50" height="50" fill="#62CBE7"/>
+                  <path d="M0 0H50V50L0 0Z" fill="#104374"/>
+                </svg>
+              </div>
+              <div class="palette" id="palette10" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+                  <rect width="50" height="50" fill="#E8BC8D"/>
+                  <path d="M0 0H50V50L0 0Z" fill="#39A43C"/>
                 </svg>
               </div>
             </div>

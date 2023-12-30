@@ -10,90 +10,142 @@ function applyColors(color1, color2) {
   });
 }
 
+// light and dark mode switch
+
+const checkbox = document.getElementById('theme');
+
+let isChecked = false;
+// false = light
+// true = dark
+
+checkbox.addEventListener('change', function() {
+    
+    isChecked = this.checked;
+    
+    console.log('Checkbox state:', isChecked);
+    if (this.checked) {
+        applyDarkMode();
+    } else {
+        applyLightMode();
+    }
+});
+
+// Function to apply dark mode styles
+function applyDarkMode() {
+    document.body.style.color = '#fff';
+    document.body.style.background = '#333';
+    document.querySelector('.heading-div').style.textShadow = '0px 4px 4px hsl(98, 100%, 29%)';
+    document.querySelectorAll('.palette1').forEach(text => {
+        text.style.color = 'White'
+    });
+    document.getElementById('darkTheme').style.display = 'grid';
+    document.getElementById('darkTheme').style.visibility = 'visible';
+    document.getElementById('lightTheme').style.display = 'none';
+    document.getElementById('lightTheme').style.visibility = 'hidden';
+}
+
+// Function to apply light mode styles
+function applyLightMode() {
+    document.body.style.color = '#333';
+    document.body.style.background = '#fff';
+    document.querySelector('.heading-div').style.textShadow = 'none';
+    document.querySelectorAll('.palette1').forEach(text => {
+        text.style.color = 'Black'
+    });
+    document.getElementById('lightTheme').style.display = 'grid';
+    document.getElementById('lightTheme').style.visibility = 'visible';
+    document.getElementById('darkTheme').style.display = 'none';
+    document.getElementById('darkTheme').style.visibility = 'hidden';
+}
+
 //colors for Dark Mode
 
-document.getElementById('palette1').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass1"});
+if(isChecked){
+    document.getElementById('palette1').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass1"});
+        });
+        // Store the last selected color option
+        chrome.storage.sync.set({lastColorOption: 'addClass1'});
     });
-    // Store the last selected color option
-    chrome.storage.sync.set({lastColorOption: 'addClass1'});
-});
-
-document.getElementById('palette2').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass2"});
+    
+    document.getElementById('palette2').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass2"});
+        });
+        chrome.storage.sync.set({lastColorOption: 'addClass2'});
     });
-    chrome.storage.sync.set({lastColorOption: 'addClass2'});
-});
-
-document.getElementById('palette3').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass3"});
+    
+    document.getElementById('palette3').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass3"});
+        });
+        chrome.storage.sync.set({lastColorOption: 'addClass3'});
     });
-    chrome.storage.sync.set({lastColorOption: 'addClass3'});
-});
-
-document.getElementById('palette4').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass4"});
+    
+    document.getElementById('palette4').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass4"});
+        });
+        chrome.storage.sync.set({lastColorOption: 'addClass4'});
     });
-    chrome.storage.sync.set({lastColorOption: 'addClass4'});
-});
-
-document.getElementById('palette5').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass5"});
+    
+    document.getElementById('palette5').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass5"});
+        });
+        chrome.storage.sync.set({lastColorOption: 'addClass5'});
     });
-    chrome.storage.sync.set({lastColorOption: 'addClass5'});
-});
-
-document.getElementById('palette11').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass11"});
+    
+    document.getElementById('palette11').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass11"});
+        });
+        chrome.storage.sync.set({lastColorOption: 'addClass6'});
     });
-    chrome.storage.sync.set({lastColorOption: 'addClass6'});
-});
+}
 
 //Colors for Light Mode
 
-document.getElementById('palette6').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass6"});
+else if(isChecked == false){
+    document.getElementById('palette6').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass6"});
+        });
     });
-});
-
-document.getElementById('palette7').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass7"});
+    
+    document.getElementById('palette7').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass7"});
+        });
     });
-});
-
-document.getElementById('palette8').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass8"});
+    
+    document.getElementById('palette8').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass8"});
+        });
     });
-});
-
-document.getElementById('palette9').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass9"});
+    
+    document.getElementById('palette9').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass9"});
+        });
     });
-});
-
-document.getElementById('palette10').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass10"});
+    
+    document.getElementById('palette10').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass10"});
+        });
     });
-});
-
-document.getElementById('palette11').addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {task: "addClass11"});
+    
+    document.getElementById('palette11').addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {task: "addClass11"});
+        });
+        chrome.storage.sync.set({lastColorOption: 'addClass11'});
     });
-    chrome.storage.sync.set({lastColorOption: 'addClass11'});
-});
-
+    
+}
 // For Font style
 
 document.getElementById('font1').addEventListener('click', function(tabs) {
