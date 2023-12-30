@@ -29,6 +29,10 @@ body {
     cursor: pointer;
 }
 
+.font-fixed{
+   color: #3DA35D !important;
+}
+
 .palette1 {
     padding: 5px;
     cursor: pointer;
@@ -143,6 +147,50 @@ body {
   visibility: visible;
 }
 
+/* border for selected combo */
+.border-combo {
+  --border-width: 3px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 57px;
+  height: 57px;
+  color: white;
+  background: #222;
+  border-radius: var(--border-width);
+}
+.border-combo::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 3s alternate infinite;
+  }
+
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
 
 .select_color{
   outline: none !important;
@@ -150,43 +198,7 @@ body {
   padding: 0px;
   box-shadow: none;
 }
-/* @media (prefers-color-scheme: dark) {
-  body {
-    color: #fff;
-    background: #333;
-  }
 
-  .heading-div {
-    text-shadow: 0px 4px 4px hsl(98, 100%, 29%);
-  }
-
-  input {
-    inline-size: 35px;
-    padding: 0;
-    background-color: #333;
-    border-color: #333;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  body {
-    color: #333;
-    background: #fff;
-  }
-
-  .heading-div {
-    text-shadow: 0px 4px 4px #c1b36f;
-  }
-
-  input {
-    inline-size: 35px;
-    padding: 0;
-    background-color: #fff;
-    border-color: #fff;
-  }
-} */
-
-/* toggle for light/dark */
 .mode-setting-title{
   display: flex;
   flex-direction: row;
@@ -202,15 +214,6 @@ body {
   pointer-events: none;
   transition: transform 0.3s ease-in-out;
 }
-/* .theme__fill {
-  background-color: grey;
-  display: block;
-  mix-blend-mode: difference;
-  position: fixed;
-  inset: 0;
-  height: 100%;
-  transform: translateX(-100%);
-} */
 .theme__icon,
 .theme__toggle {
   z-index: 1;
@@ -352,4 +355,139 @@ body {
 }
 .theme__toggle-wrap {
   margin: 0 0.75em;
+}
+
+/* on/off switch */
+
+/* The power switch styles */
+.power-switch {
+  --color-invert: #000000;
+  --width: 50px;
+  --height: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--width);
+  height: var(--height);
+}
+
+/* The button styles */
+#on-off {
+  position: absolute;
+  top: 12px;
+  left: -5px;
+  /* z-index: 9999;  */
+}
+
+.power-switch .button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* The button's radial gradient */
+.power-switch .button:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: radial-gradient(circle closest-side, var(--color-invert), transparent);
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  transform: perspective(1px) translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* The power-on and power-off button styles */
+.power-switch .button .power-on,
+.power-switch .button .power-off {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  fill: none;
+  stroke: var(--color-invert);
+  stroke-width: 8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* The line and circle styles */
+.power-switch .button .line {
+  opacity: .5;
+  transform: translateY(4px);
+}
+.power-switch .button .circle {
+  opacity: .5;
+  transform: rotate(-40deg);
+  transform-origin: center 27px;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 60;
+}
+
+/* The power-on animation styles */
+.power-switch .button .power-on {
+  filter: drop-shadow(0px 0px 6px rgb(1, 1, 1));
+}
+.power-switch .button .power-on .line {
+  opacity: 1;
+  transition: opacity .3s ease 1s;
+
+}
+.power-switch .button .power-on .circle {
+  opacity: 1;
+  stroke-dashoffset: 220;
+  transition: transform 0s ease, stroke-dashoffset 1s ease 0s;
+}
+
+/* The input styles */
+.power-switch input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0;
+}
+.power-switch input:checked + .button:after {
+  opacity: 0.15;
+  transform: scale(2) perspective(1px) translateZ(0);
+  backface-visibility: hidden;
+  transition: opacity .5s ease, transform .5s ease;
+}
+.power-switch input:checked + .button .power-on,
+.power-switch input:checked + .button .power-off {
+  animation: click-animation .3s ease forwards;
+  transform: scale(1);
+}
+.power-switch input:checked + .button .power-on .line {
+  animation: line-animation .8s ease-in forwards;
+}
+.power-switch input:checked + .button .power-on .circle {
+  transform: rotate(302deg);
+}
+.power-switch input:checked + .button .power-on .circle {
+  transform: rotate(302deg);
+  stroke-dashoffset: 40;
+  transition: transform .4s ease .2s, stroke-dashoffset .4s ease .2s;
+}
+
+/* Keyframe animations */
+@keyframes line-animation {
+  0% { transform: translateY(4px); }
+  10% { transform: translateY(10px); }
+  40% { transform: translateY(-25px); }
+  60% { transform: translateY(-25px); }
+  85% { transform: translateY(10px); }
+  100% { transform: translateY(4pxpx); }
+}
+@keyframes click-animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(.9); }
+  100% { transform: scale(1); }
 }

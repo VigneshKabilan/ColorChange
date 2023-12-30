@@ -61,6 +61,7 @@ function applyLightMode() {
 //colors for Dark Mode
 
     document.getElementById('palette1').addEventListener('click', function() {
+        setBorder('palette1');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass1"});
         });
@@ -69,6 +70,7 @@ function applyLightMode() {
     });
     
     document.getElementById('palette2').addEventListener('click', function() {
+        setBorder('palette2');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass2"});
         });
@@ -76,6 +78,7 @@ function applyLightMode() {
     });
     
     document.getElementById('palette3').addEventListener('click', function() {
+        setBorder('palette3');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass3"});
         });
@@ -83,6 +86,7 @@ function applyLightMode() {
     });
     
     document.getElementById('palette4').addEventListener('click', function() {
+        setBorder('palette4');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass4"});
         });
@@ -90,6 +94,7 @@ function applyLightMode() {
     });
     
     document.getElementById('palette5').addEventListener('click', function() {
+        setBorder('palette5');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass5"});
         });
@@ -97,6 +102,7 @@ function applyLightMode() {
     });
     
     document.getElementById('palette11').addEventListener('click', function() {
+        setBorder('palette11');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass11"});
         });
@@ -105,6 +111,7 @@ function applyLightMode() {
 
 //Colors for Light Mode
     document.getElementById('palette6').addEventListener('click', function() {
+        setBorder('palette6');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass6"});
         });
@@ -112,6 +119,7 @@ function applyLightMode() {
     });
     
     document.getElementById('palette7').addEventListener('click', function() {
+        setBorder('palette7');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass7"});
         });
@@ -119,6 +127,7 @@ function applyLightMode() {
     });
     
     document.getElementById('palette8').addEventListener('click', function() {
+        setBorder('palette8');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass8"});
         });
@@ -126,6 +135,7 @@ function applyLightMode() {
     });
     
     document.getElementById('palette9').addEventListener('click', function() {
+        setBorder('palette9');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass9"});
         });
@@ -133,21 +143,54 @@ function applyLightMode() {
     });
     
     document.getElementById('palette10').addEventListener('click', function() {
+        setBorder('palette10');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass10"});
         });
         chrome.storage.sync.set({lastColorOption: 'addClass10'});
     });
-
     document.getElementById('palette12').addEventListener('click', function() {
+        setBorder('palette12');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {task: "addClass12"});
         });
         chrome.storage.sync.set({lastColorOption: 'addClass12'});
     });
+
+    // set border for combinations "retained"
+
+    chrome.storage.sync.get(['lastColorOption'], function(result) {
+        if (result.lastColorOption === 'addClass1') {
+            document.getElementById('palette1').classList.add('border-combo');
+        } else if (result.lastColorOption === 'addClass2') {
+            document.getElementById('palette2').classList.add('border-combo');
+        } else if (result.lastColorOption === 'addClass3') {
+            document.getElementById('palette3').classList.add('border-combo');
+        } else if (result.lastColorOption === 'addClass4') {
+            document.getElementById('palette4').classList.add('border-combo');
+        } else if (result.lastColorOption === 'addClass5') {
+            document.getElementById('palette5').classList.add('border-combo');
+        } else if (result.lastColorOption === 'addClass6') {
+            document.getElementById('palette6').classList.add('border-combo');
+        } else if (result.lastColorOption === 'addClass7') {
+            document.getElementById('palette7').classList.add('border-combo');
+        } else if (result.lastColorOption === 'addClass8') {
+            document.getElementById('palette8').classList.add('border-combo');
+        } else if (result.lastColorOption === 'addClass9') {
+            document.getElementById('palette9').classList.add('border-combo');
+        } else if (result.lastColorOption === 'addClass10') {
+            document.getElementById('palette10').classList.add('border-combo');
+        } else if (result.lastColorOption === 'addClass11') {
+            document.getElementById('palette11').classList.add('border-combo');
+        } else if (result.lastColorOption === 'addClass12') {
+            document.getElementById('palette12').classList.add('border-combo');
+        }
+    });
+    
 // For Font style
 
 document.getElementById('font1').addEventListener('click', function(tabs) {
+    setFontFixedColor('font1');
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {task: "f1"});
     });
@@ -155,6 +198,7 @@ document.getElementById('font1').addEventListener('click', function(tabs) {
 })
 
 document.getElementById('font2').addEventListener('click', function(tabs) {
+    setFontFixedColor('font2');
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {task: "f2"});
     });
@@ -162,6 +206,7 @@ document.getElementById('font2').addEventListener('click', function(tabs) {
 })
 
 document.getElementById('font3').addEventListener('click', function(tabs) {
+    setFontFixedColor('font3');
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {task: "f3"});
     });
@@ -169,6 +214,7 @@ document.getElementById('font3').addEventListener('click', function(tabs) {
 })
 
 document.getElementById('font4').addEventListener('click', function(tabs) {
+    setFontFixedColor('font4');
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {task: "f4"});
     });
@@ -176,6 +222,7 @@ document.getElementById('font4').addEventListener('click', function(tabs) {
 })
 
 document.getElementById('font5').addEventListener('click', function(tabs) {
+    setFontFixedColor('font5');
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {task: "f5"});
     });
@@ -183,11 +230,31 @@ document.getElementById('font5').addEventListener('click', function(tabs) {
 })
 
 document.getElementById('font6').addEventListener('click', function(tabs) {
+    setFontFixedColor('font6');
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {task: "f6"});
     });
     chrome.storage.sync.set({lastFontOption: 'Macondo, cursive'});
 })
+
+// set font "retained"
+
+chrome.storage.sync.get(['lastFontOption'], function(result) {
+    if (result.lastFontOption === 'Inter, cursive') {
+        document.getElementById('font1').classList.add('font-fixed');
+    } else if (result.lastFontOption === 'JetBrains Mono, monospace') {
+        document.getElementById('font2').classList.add('font-fixed');
+    } else if (result.lastFontOption === 'Montserrat, sans-serif') {
+        document.getElementById('font3').classList.add('font-fixed');
+    } else if (result.lastFontOption === 'cursive') {
+        document.getElementById('font4').classList.add('font-fixed');
+    } else if (result.lastFontOption === 'Rosario, sans-serif') {
+        document.getElementById('font5').classList.add('font-fixed');
+    } else if (result.lastFontOption === 'Macondo, cursive') {
+        document.getElementById('font6').classList.add('font-fixed');
+    }
+});
+
 // apply background
 document.getElementById('bgpalette1').addEventListener('click', function() {
     console.log("elements[i].classListbg");
@@ -209,3 +276,46 @@ document.getElementById('bgpalette1').addEventListener('click', function() {
 //     });
 //   }
 
+// set border "on click"
+var availablePalettes = [
+    'palette1',
+    'palette2',
+    'palette3',
+    'palette4',
+    'palette5',
+    'palette6',
+    'palette7',
+    'palette8',
+    'palette9',
+    'palette10',
+    'palette11',
+    'palette12'
+];
+
+function setBorder(toAddElement){
+    availablePalettes.forEach(element => {
+        document.getElementById(element).classList.remove('border-combo');
+    });
+    document.getElementById(toAddElement).classList.add('border-combo');
+}
+
+// set font color "on click"
+var availableFonts = [
+    'font1',
+    'font2',
+    'font3',
+    'font4',
+    'font5',
+    'font6'
+];
+function setFontFixedColor(toAddElement){
+    availableFonts.forEach(element => {
+        document.getElementById(element).classList.remove('font-fixed');
+    });
+    document.getElementById(toAddElement).classList.add('font-fixed');
+}
+
+// on/off button
+document.getElementById('on-off').addEventListener('click', function(){
+console.log("clicked");
+});
