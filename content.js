@@ -80,130 +80,136 @@ function changeTextColorGptOur(colo) {
     }
 }
 
-// Select the node that will be observed for mutations
-const targetNode = document.body;
-// Options for the observer (which mutations to observe)
-const config = {attributes: true, childList: true, subtree: true};
 
-// Callback function to execute when mutations are observed
-const callback = function (mutationsList, observer) {
-    // Use traditional 'for loops' for IE 11
-    for (let mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-            chrome.storage.sync.get(['lastColorOption'], function (result) {
-                if (result.lastColorOption && (window.location.hostname.includes('google.') || window.location.hostname.includes('chat.openai.com'))) {
-                    // Apply the last selected color option
-                    if (result.lastColorOption === 'addClass0') {
-                        let classesToRemove = ["NE1", "NE2", "NE3", "NE4", "NE5"];
-                        chrome.storage.sync.get(['primary', 'secondary'], function (data) {
-                            // Use the retrieved values
-                            var color1 = data.primary;
-                            var color2 = data.secondary;
-                            for (var i = 0; i < elements1.length; i++) {
-                                elements1[i].classList.remove(...classesToRemove);
-                                elements1[i].style.color = color1;
+chrome.storage.sync.get(['isOn'], function(result) {
+    if (result.isOn) {
+        // Select the node that will be observed for mutations
+        const targetNode = document.body;
+        // Options for the observer (which mutations to observe)
+        const config = {attributes: true, childList: true, subtree: true};
+
+        // Callback function to execute when mutations are observed
+        const callback = function (mutationsList, observer) {
+            // Use traditional 'for loops' for IE 11
+            for (let mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    chrome.storage.sync.get(['lastColorOption'], function (result) {
+                        if (result.lastColorOption && (window.location.hostname.includes('google.') || window.location.hostname.includes('chat.openai.com'))) {
+                            // Apply the last selected color option
+                            if (result.lastColorOption === 'addClass0') {
+                                let classesToRemove = ["NE1", "NE2", "NE3", "NE4", "NE5"];
+                                chrome.storage.sync.get(['primary', 'secondary'], function (data) {
+                                    // Use the retrieved values
+                                    var color1 = data.primary;
+                                    var color2 = data.secondary;
+                                    for (var i = 0; i < elements1.length; i++) {
+                                        elements1[i].classList.remove(...classesToRemove);
+                                        elements1[i].style.color = color1;
+                                    }
+                                    for (let i = 0; i< elements11.length; i++) {
+                                        elements11[i].style.color = color1;
+                                    }
+                                    for (let i = 0; i < elements12.length; i++) {
+                                        elements12[i].style.color = color2;
+                                    }
+                                    for (let i = 0; i < sitenames.length; i++) {
+                                        sitenames[i].style.color = color1;
+                                    }
+                                    for (var i = 0; i < elements2.length; i++) {
+                                        elements2[i].style.color = color2;
+                                    }
+                                    for (let i = 0; i < gpttexts.length; i++) {
+                                        gpttexts[i].style.color = color1;
+                                    }
+                                    for (let i = 0; i < ourtexts.length; i++) {
+                                        ourtexts[i].style.color = color2;
+                                    }
+                                    for (let i = 0; i < ytLinks.length; i++) {
+                                        ytLinks[i].style.color = color1;
+                                    }
+                                });
+
+                            } else if (result.lastColorOption === 'addClass1') {
+                                changeInTextColor('NE1', '#e4ae35');
+                                changeTextColorGpt('#fff6a9', '#ffa500');
+                                changeTextColorGptOur('#e4ae35');
+
+                            } else if (result.lastColorOption === 'addClass2') {
+                                changeInTextColor('NE2', '#c5afff');
+                                changeTextColorGpt('#ffbbf8', '#ff1493');
+                                changeTextColorGptOur('#c5afff');
+
+                            } else if (result.lastColorOption === 'addClass3') {
+                                changeInTextColor('NE3', '#4eb7ff');
+                                changeTextColorGpt('#cbfcff', '#cbfcff');
+                                changeTextColorGptOur('#4eb7ff');
+
+                            } else if (result.lastColorOption === 'addClass4') {
+                                changeInTextColor('NE4', '#e1fe7b');
+                                changeTextColorGpt('#ccfecc', '#008000');
+                                changeTextColorGptOur('#e1fe7b');
+
+                            } else if (result.lastColorOption === 'addClass5') {
+                                changeInTextColor('NE5', '#ff85dc');
+                                changeTextColorGpt('#ffcbd2', '#FF0000');
+                                changeTextColorGptOur('#ff85dc');
+
+                            } else if (result.lastColorOption === 'addClass6') {
+                                changeInTextColor('NE6', '#143da6');
+                                changeTextColorGpt('#60bd5c', '#38ac34');
+                                changeTextColorGptOur('#143da6');
+
+                            } else if (result.lastColorOption === 'addClass7') {
+                                changeInTextColor('NE7', '#ED1D26');
+                                changeTextColorGpt('#F6D162', '#fdda71');
+                                changeTextColorGptOur('#ED1D26');
+
+                            } else if (result.lastColorOption === 'addClass8') {
+                                changeInTextColor('NE8', '#6418d9');
+                                changeTextColorGpt('#A07BB9', '#b884db');
+                                changeTextColorGptOur('#6418d9');
+
+                            } else if (result.lastColorOption === 'addClass9') {
+                                changeInTextColor('NE9', '#104374');
+                                changeTextColorGpt('#62CBE7', '#7bcfe7');
+                                changeTextColorGptOur('#104374');
+
+                            } else if (result.lastColorOption === 'addClass10') {
+                                changeInTextColor('NE10', '#217823');
+                                changeTextColorGpt('#E8BC8D', '#ffcd98');
+                                changeTextColorGptOur('#217823');
+
+                            } else if (result.lastColorOption === 'addClass11') {
+                                changeInTextColor('NE11', '#10F057');
+                                changeTextColorGpt('#dabbff', '#9114ff');
+                                changeTextColorGptOur('#10F057');
+
+                            } else if (result.lastColorOption === 'addClass12') {
+                                changeInTextColor('NE12', '#000');
+                                changeTextColorGpt('#808080', '#808080');
+                                changeTextColorGptOur('#000');
                             }
-                            for (let i = 0; i< elements11.length; i++) {
-                                elements11[i].style.color = color1;
-                            }
-                            for (let i = 0; i < elements12.length; i++) {
-                                elements12[i].style.color = color2;
-                            }
-                            for (let i = 0; i < sitenames.length; i++) {
-                                sitenames[i].style.color = color1;
-                            }
-                            for (var i = 0; i < elements2.length; i++) {
-                                elements2[i].style.color = color2;
-                            }
-                            for (let i = 0; i < gpttexts.length; i++) {
-                                gpttexts[i].style.color = color1;
-                            }
-                            for (let i = 0; i < ourtexts.length; i++) {
-                                ourtexts[i].style.color = color2;
-                            }
-                            for (let i = 0; i < ytLinks.length; i++) {
-                                ytLinks[i].style.color = color1;
-                            }
-                        });
+                            // Add more conditions for other color options
+                        }
+                    });
+                    chrome.storage.sync.get(['lastFontOption'], function (result) {
 
-                    } else if (result.lastColorOption === 'addClass1') {
-                        changeInTextColor('NE1', '#e4ae35');
-                        changeTextColorGpt('#fff6a9', '#ffa500');
-                        changeTextColorGptOur('#e4ae35');
 
-                    } else if (result.lastColorOption === 'addClass2') {
-                        changeInTextColor('NE2', '#c5afff');
-                        changeTextColorGpt('#ffbbf8', '#ff1493');
-                        changeTextColorGptOur('#c5afff');
-
-                    } else if (result.lastColorOption === 'addClass3') {
-                        changeInTextColor('NE3', '#4eb7ff');
-                        changeTextColorGpt('#cbfcff', '#cbfcff');
-                        changeTextColorGptOur('#4eb7ff');
-
-                    } else if (result.lastColorOption === 'addClass4') {
-                        changeInTextColor('NE4', '#e1fe7b');
-                        changeTextColorGpt('#ccfecc', '#008000');
-                        changeTextColorGptOur('#e1fe7b');
-
-                    } else if (result.lastColorOption === 'addClass5') {
-                        changeInTextColor('NE5', '#ff85dc');
-                        changeTextColorGpt('#ffcbd2', '#FF0000');
-                        changeTextColorGptOur('#ff85dc');
-
-                    } else if (result.lastColorOption === 'addClass6') {
-                        changeInTextColor('NE6', '#143da6');
-                        changeTextColorGpt('#60bd5c', '#38ac34');
-                        changeTextColorGptOur('#143da6');
-
-                    } else if (result.lastColorOption === 'addClass7') {
-                        changeInTextColor('NE7', '#ED1D26');
-                        changeTextColorGpt('#F6D162', '#fdda71');
-                        changeTextColorGptOur('#ED1D26');
-
-                    } else if (result.lastColorOption === 'addClass8') {
-                        changeInTextColor('NE8', '#6418d9');
-                        changeTextColorGpt('#A07BB9', '#b884db');
-                        changeTextColorGptOur('#6418d9');
-
-                    } else if (result.lastColorOption === 'addClass9') {
-                        changeInTextColor('NE9', '#104374');
-                        changeTextColorGpt('#62CBE7', '#7bcfe7');
-                        changeTextColorGptOur('#104374');
-
-                    } else if (result.lastColorOption === 'addClass10') {
-                        changeInTextColor('NE10', '#217823');
-                        changeTextColorGpt('#E8BC8D', '#ffcd98');
-                        changeTextColorGptOur('#217823');
-
-                    } else if (result.lastColorOption === 'addClass11') {
-                        changeInTextColor('NE11', '#10F057');
-                        changeTextColorGpt('#dabbff', '#9114ff');
-                        changeTextColorGptOur('#10F057');
-
-                    } else if (result.lastColorOption === 'addClass12') {
-                        changeInTextColor('NE12', '#000');
-                        changeTextColorGpt('#808080', '#808080');
-                        changeTextColorGptOur('#000');
-                    }
-                    // Add more conditions for other color options
+                        if (result.lastFontOption && (window.location.hostname.includes('google.') || window.location.hostname.includes('chat.openai.'))) {
+                            // Apply the last selected font option
+                            changeTextFamily(result.lastFontOption);
+                            // Add more conditions for other color options
+                        }
+                    });
                 }
-            });
-            chrome.storage.sync.get(['lastFontOption'], function (result) {
+            }
+        };
+        // Create an observer instance linked to the callback function
+        const observer = new MutationObserver(callback);
 
-
-                if (result.lastFontOption && (window.location.hostname.includes('google.') || window.location.hostname.includes('chat.openai.'))) {
-                    // Apply the last selected font option
-                    changeTextFamily(result.lastFontOption);
-                    // Add more conditions for other color options
-                }
-            });
-        }
+        // Start observing the target node for configured mutations
+        observer.observe(targetNode, config);
     }
-};
-// Create an observer instance linked to the callback function
-const observer = new MutationObserver(callback);
+});
 
-// Start observing the target node for configured mutations
-observer.observe(targetNode, config);
 

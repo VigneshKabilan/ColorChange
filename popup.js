@@ -1,3 +1,19 @@
+let onOffButton = document.getElementById('on-off');
+
+onOffButton.addEventListener('click', function() {
+    let isEnable = onOffButton.classList.toggle('active');
+    if (isEnable) {
+        chrome.storage.sync.set({isOn: true});
+    } else {
+        chrome.storage.sync.set({isOn: false});
+        // Get the currently active tab
+        chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+            // Refresh the active tab
+            chrome.tabs.reload(tabs[0].id);
+        });
+    }
+});
+
 function reloadCurrentTab() {
   // Query for the currently active tab in the current window
   chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
@@ -46,10 +62,26 @@ checkbox.addEventListener('change', function() {
     }
 });
 
+function saveThemePreference() {
+    localStorage.setItem('theme', isChecked ? 'dark' : 'light');
+}
+
+function loadThemePreference() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      applyDarkMode();
+      checkbox.checked = true;
+    } else {
+      applyLightMode();
+      checkbox.checked = false;
+    }
+}
+  
+
 // Function to apply dark mode styles
 function applyDarkMode() {
     document.body.style.color = '#fff';
-    document.body.style.background = '#333';
+    document.body.style.backgroundColor = '#333';
     document.querySelector('.heading-div').style.textShadow = '0px 4px 4px hsl(98, 100%, 29%)';
     document.querySelectorAll('.palette1').forEach(text => {
         text.style.color = 'White'
@@ -59,13 +91,15 @@ function applyDarkMode() {
     document.getElementById('lightTheme').style.display = 'none';
     document.getElementById('lightTheme').style.visibility = 'hidden';
     document.getElementsByClassName('power-switch')[0].style.setProperty('--color-invert', '#00ff00');
+    isChecked = true;
+    saveThemePreference();
     
 }
 
 // Function to apply light mode styles
 function applyLightMode() {
     document.body.style.color = '#333';
-    document.body.style.background = '#fff';
+    document.body.style.backgroundColor = '#fff';
     document.querySelector('.heading-div').style.textShadow = 'none';
     document.querySelectorAll('.palette1').forEach(text => {
         text.style.color = 'Black'
@@ -75,7 +109,11 @@ function applyLightMode() {
     document.getElementById('darkTheme').style.display = 'none';
     document.getElementById('darkTheme').style.visibility = 'hidden';
     document.getElementsByClassName('power-switch')[0].style.setProperty('--color-invert', '#000000');
+    isChecked = false;
+    saveThemePreference();
 }
+
+loadThemePreference();
 
 //colors for Dark Mode
 

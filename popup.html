@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
   </head>
   <body>
       <div>
@@ -15,41 +18,59 @@
         <div class="heading-div">
           <h1>Style Changer For Google</h1>
         </div>
+        <div>
+          <div class="mode-setting-title">
+            <div id="on-off">
+              <div class="power-switch">
+                <input type="checkbox" class="onoffinput" />
+                <div class="button">
+                  <svg class="power-off">
+                    <use xlink:href="#line" class="line" />
+                    <use xlink:href="#circle" class="circle" />
+                  </svg>
+                  <svg class="power-on">
+                    <use xlink:href="#line" class="line" />
+                    <use xlink:href="#circle" class="circle" />
+                  </svg>
+                </div>
+              </div> 
+            </div>
+            <div>
+              <label for="theme" class="theme">
+                <span>Light</span>
+                <span class="theme__toggle-wrap">
+                  <input
+                    type="checkbox"
+                    class="theme__toggle"
+                    id="theme"
+                    role="switch"
+                    name="theme"
+                  />
+                  <span class="theme__fill"></span>
+                  <span class="theme__icon">
+                    <span class="theme__icon-part"></span
+                    ><span class="theme__icon-part"></span
+                    ><span class="theme__icon-part"></span
+                    ><span class="theme__icon-part"></span
+                    ><span class="theme__icon-part"></span
+                    ><span class="theme__icon-part"></span
+                    ><span class="theme__icon-part"></span
+                    ><span class="theme__icon-part"></span
+                    ><span class="theme__icon-part"></span>
+                  </span>
+                </span>
+                <span>Dark</span>
+              </label>
+            </div>
+          </div>
+        </div>
         <!--Div for User to select the styles-->
         <div class="sub-Header-div">
-          <div class="mode-setting-title">
-           <h3>Text Styler: </h3> 
-           <label for="theme" class="theme">
-            <span>Light</span>
-            <span class="theme__toggle-wrap">
-              <input
-                type="checkbox"
-                class="theme__toggle"
-                id="theme"
-                role="switch"
-                name="theme"
-              />
-              <span class="theme__fill"></span>
-              <span class="theme__icon">
-                <span class="theme__icon-part"></span
-                ><span class="theme__icon-part"></span
-                ><span class="theme__icon-part"></span
-                ><span class="theme__icon-part"></span
-                ><span class="theme__icon-part"></span
-                ><span class="theme__icon-part"></span
-                ><span class="theme__icon-part"></span
-                ><span class="theme__icon-part"></span
-                ><span class="theme__icon-part"></span>
-              </span>
-            </span>
-            <span>Dark</span>
-          </label>
-          </div>
-          
+          <h3>Text Styler: </h3> 
           <div class="input-color-div">
-            <label for="color1">Color 1:</label><br>
+            <label for="color1">Primary:</label><br>
             <input type="color" id="color1" name="color1" class="select_color"><br>
-            <label for="color2">Color 2:</label><br>
+            <label for="color2">Secondary:</label><br>
             <input type="color" id="color2" name="color2" class="select_color"><br>
             <button class="apply-button" id="apply">Apply</button>
           </div>
@@ -68,20 +89,20 @@
               </div>
               <div class="palette" id="palette2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                  <rect width="50" height="50" fill="#FFBBF8"/>
-                  <path d="M0 0H50V50L0 0Z" fill="#BDC1C6"/>
+                  <rect width="50" height="50" fill="#c5afff"/>
+                  <path d="M0 0H50V50L0 0Z" fill="#ffbbf8"/>
                 </svg>
               </div>
               <div class="palette" id="palette3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                  <rect width="50" height="50" fill="#4EB7FF"/>
-                  <path d="M0 0H50V50L0 0Z" fill="#F0D010"/>
+                  <rect width="50" height="50" fill="#4eb7ff"/>
+                  <path d="M0 0H50V50L0 0Z" fill="#cbfcff"/>
                 </svg>
               </div>
               <div class="palette" id="palette4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                  <rect width="50" height="50" fill="#CCFECC"/>
-                  <path d="M0 0H50V50L0 0Z" fill="#E1FE7B"/>
+                  <rect width="50" height="50" fill="#e1fe7b"/>
+                  <path d="M0 0H50V50L0 0Z" fill="#ccfecc"/>
                 </svg>
               </div>
               <div class="palette" id="palette5">
@@ -153,32 +174,17 @@
       </div>
 
       <!-- on/off button -->
-      <div id="on-off">
-        <div class="power-switch">
-         <input type="checkbox" class="onoffinput" />
-         <div class="button">
-           <svg class="power-off">
-             <use xlink:href="#line" class="line" />
-             <use xlink:href="#circle" class="circle" />
-           </svg>
-           <svg class="power-on">
-             <use xlink:href="#line" class="line" />
-             <use xlink:href="#circle" class="circle" />
-           </svg>
-         </div>
-       </div> 
-       </div>
        
        
        <!-- SVG -->
-       <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="line">
-           <line x1="75" y1="34" x2="75" y2="58"/>
-         </symbol>
-         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="circle">
-           <circle cx="75" cy="80" r="35"/>
-         </symbol>
-       </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+          <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="line">
+            <line x1="75" y1="34" x2="75" y2="58"/>
+          </symbol>
+          <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="circle">
+            <circle cx="75" cy="80" r="35"/>
+          </symbol>
+        </svg>
        
       <script src="popup.js"></script>
   </body>
