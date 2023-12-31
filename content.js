@@ -98,7 +98,7 @@ const callback = function (mutationsList, observer) {
         if (mutation.type === 'childList') {
             chrome.storage.sync.get(['lastColorOption'], function (result) {
 
-                if (result.lastColorOption && (window.location.hostname.includes('google.com') || window.location.hostname.includes('chat.openai.com'))) {
+                if (result.lastColorOption && (window.location.hostname.includes('google.') || window.location.hostname.includes('chat.openai.com'))) {
                     // Apply the last selected color option
                     if (result.lastColorOption === 'addClass0') {
                         let classesToRemove = ["NE1", "NE2", "NE3", "NE4", "NE5"];
