@@ -24,14 +24,26 @@ let ytLinks = document.getElementsByClassName("y05Tsc");
 let elements1 = document.getElementsByClassName('DKV0Md');
 let elements11 = document.getElementsByClassName('OSrXXb');
 let elements12 = document.getElementsByClassName('ljeAnf');
+let allEmTags = document.querySelectorAll('em');
 let elements2 = document.getElementsByClassName('r025kc');
 let sitenames = document.getElementsByClassName('VuuXrf');
 let gpttexts = document.getElementsByClassName('prose');
 let ourtexts = document.getElementsByClassName('flex flex-1 text-base mx-auto gap-3 md:px-5 lg:px-1 xl:px-5 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem] group');
+let elementsBold = document.getElementsByClassName('yXK7lf');
+let newsElements = document.getElementsByClassName('nDgy9d');
 
 //Function to change clr to texts
 function changeInTextColor(clr, text) {
     let classesToRemove = ["NE1", "NE2", "NE3", "NE4", "NE5", "NE6", "NE7", "NE8", "NE9", "NE10", "NE11", "NE12"];
+    for (let i = 0; i < elementsBold.length; i++) {
+        const emTags = elementsBold[i].querySelectorAll("em");
+        for (let j = 0; j < emTags.length; j++) {
+            emTags[j].style.setProperty('color', text, 'important');
+        }
+    } 
+    for (let i = 0; i < newsElements.length; i++) {
+        newsElements[i].style.color = text;
+    }
     for (let i = 0; i < elements1.length; i++) {
         elements1[i].classList.remove(...classesToRemove);
         elements1[i].classList.add(clr);
@@ -50,7 +62,12 @@ function changeInTextColor(clr, text) {
         sitenames[i].classList.add(clr);
     }
     for (let i = 0; i < ytLinks.length; i++) {
-        ytLinks[i].style.color = text;
+        ytLinks[i].classList.remove(...classesToRemove);
+        ytLinks[i].classList.add(clr);
+        // ytLinks[i].style.color = text;
+    } 
+    for (let i = 0; i < allEmTags.length; i++) {
+        allEmTags[i].style.color = text;
     }
 }
 
@@ -64,6 +81,9 @@ function changeTextFamily(family) {
     }
     for (let i = 0; i < ytLinks.length; i++) {
         ytLinks[i].style.fontFamily = family;
+    }
+    for (let i = 0; i < newsElements.length; i++) {
+        newsElements[i].style.fontFamily = family;
     }
 }
 
@@ -102,6 +122,19 @@ chrome.storage.sync.get(['isOn'], function(result) {
                                     // Use the retrieved values
                                     var color1 = data.primary;
                                     var color2 = data.secondary;
+                                    for (let i = 0; i < elementsBold.length; i++) {
+                                        const emTags = elementsBold[i].querySelectorAll("em");
+                                        for (let j = 0; j < emTags.length; j++) {
+                                            emTags[j].style.setProperty('color', color2, 'important');
+                                        }
+                                    }   
+                                    for (let i = 0; i < ytLinks.length; i++) {
+                                        ytLinks[i].classList.remove(...classesToRemove);
+                                        ytLinks[i].style.color = color1;
+                                    } 
+                                    for (let i = 0; i < newsElements.length; i++) {
+                                        newsElements[i].style.color = color2;
+                                    }
                                     for (var i = 0; i < elements1.length; i++) {
                                         elements1[i].classList.remove(...classesToRemove);
                                         elements1[i].style.color = color1;
@@ -123,9 +156,6 @@ chrome.storage.sync.get(['isOn'], function(result) {
                                     }
                                     for (let i = 0; i < ourtexts.length; i++) {
                                         ourtexts[i].style.color = color2;
-                                    }
-                                    for (let i = 0; i < ytLinks.length; i++) {
-                                        ytLinks[i].style.color = color1;
                                     }
                                 });
 
