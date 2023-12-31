@@ -1,3 +1,4 @@
+chrome.storage.sync.set({isOn: true});
 let onOffButton = document.getElementById('on-off');
 
 onOffButton.addEventListener('click', function() {
