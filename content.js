@@ -3,7 +3,7 @@ const links = [
     {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''},
     {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Gruppo&family=Inter:wght@400&family=JetBrains+Mono&family=Macondo&family=Montserrat:wght@300&family=Rosario&display=swap'
+        href: 'https://fonts.googleapis.com/css2?family=Gruppo&family=Pridi&family=JetBrains+Mono&family=Macondo&family=Pixelify+Sans&family=Montserrat:wght@300&family=Rosario&display=swap'
     }
 ];
 
@@ -83,6 +83,12 @@ function changeTextFamily(family) {
     }
     for (let i = 0; i < newsElements.length; i++) {
         newsElements[i].style.fontFamily = family;
+    }
+    for (let i = 0; i < gpttexts.length; i++) {
+        gpttexts[i].style.fontFamily = family;
+    }
+    for (let i = 0; i < ourtexts.length; i++) {
+        ourtexts[i].style.fontFamily = family;
     }
 }
 

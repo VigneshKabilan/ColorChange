@@ -1,9 +1,14 @@
 {
-  "manifest_version": 2,
-  "name": "Color Changer",
+  "manifest_version": 3,
+  "name":  "Stylo: Custom Color & Font for Google and GPT",
   "version": "1.0",
-  "description": "Change text color of specific elements",
-  "browser_action": {
+  "icons": {
+    "16": "logo_16.png",
+    "48": "logo_48.png",
+    "128": "logo_128.png"
+  },
+  "description": "Design your Google & GPT UI with your favourite colors and fonts, in both Light and Dark mode.",
+  "action": {
     "default_popup": "popup.html"
   },
   "permissions": [

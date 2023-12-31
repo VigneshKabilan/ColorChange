@@ -234,39 +234,39 @@ loadThemePreference();
 
 document.getElementById('font1').addEventListener('click', function(tabs) {
     setFontFixedColor('font1');
-    chrome.storage.sync.set({lastFontOption: 'Inter, cursive'});
+    chrome.storage.sync.set({lastFontOption: 'Pridi, math'});
     reloadCurrentTab();
-})
+});
 
 document.getElementById('font2').addEventListener('click', function(tabs) {
     setFontFixedColor('font2');
     chrome.storage.sync.set({lastFontOption: 'JetBrains Mono, monospace'});
     reloadCurrentTab();
-})
+});
 
 document.getElementById('font3').addEventListener('click', function(tabs) {
     setFontFixedColor('font3');
-    chrome.storage.sync.set({lastFontOption: 'Montserrat, sans-serif'});
+    chrome.storage.sync.set({lastFontOption: 'Pixelify Sans, serif'});
     reloadCurrentTab();
-})
+});
 
 document.getElementById('font4').addEventListener('click', function(tabs) {
     setFontFixedColor('font4');
     chrome.storage.sync.set({lastFontOption: 'cursive'});
     reloadCurrentTab();
-})
+});
 
 document.getElementById('font5').addEventListener('click', function(tabs) {
     setFontFixedColor('font5');
-    chrome.storage.sync.set({lastFontOption: 'Rosario, sans-serif'});
+    chrome.storage.sync.set({lastFontOption: 'Montserrat, sans-serif'});
     reloadCurrentTab();
-})
+});
 
 document.getElementById('font6').addEventListener('click', function(tabs) {
     setFontFixedColor('font6');
-    chrome.storage.sync.set({lastFontOption: 'Macondo, cursive'});
+    chrome.storage.sync.set({lastFontOption: 'Macondo, fantasy'});
     reloadCurrentTab();
-})
+});
 
 
 chrome.storage.sync.get(['lastFontOption'], function(result) {
