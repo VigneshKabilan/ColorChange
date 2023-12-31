@@ -22,6 +22,8 @@ function injectLink(link) {
 links.forEach(injectLink);
 let ytLinks = document.getElementsByClassName("y05Tsc");
 let elements1 = document.getElementsByClassName('DKV0Md');
+let elements11 = document.getElementsByClassName('OSrXXb');
+let elements12 = document.getElementsByClassName('ljeAnf');
 let allEmTags = document.querySelectorAll('em');
 let elements2 = document.getElementsByClassName('r025kc');
 let sitenames = document.getElementsByClassName('VuuXrf');
@@ -33,10 +35,20 @@ function changeInTextColor(clr, text) {
     let classesToRemove = ["NE1", "NE2", "NE3", "NE4", "NE5", "NE6", "NE7", "NE8", "NE9", "NE10", "NE11", "NE12"];
     for (let i = 0; i < elements1.length; i++) {
         elements1[i].classList.remove(...classesToRemove);
-        sitenames[i].classList.remove(...classesToRemove);
         elements1[i].classList.add(clr);
-        sitenames[i].classList.add(clr);
+    }
+    for (let i = 0; i < elements1.length; i++) {
         elements2[i].style.color = text;
+    }
+    for (let i = 0; i< elements11.length; i++) {
+        elements11[i].classList.add(clr);
+    }
+    for (let i = 0; i < elements12.length; i++) {
+        elements12[i].style.color = text;
+    }
+    for (let i = 0; i < sitenames.length; i++) {
+        sitenames[i].classList.remove(...classesToRemove);
+        sitenames[i].classList.add(clr);
     }
     for (let i = 0; i < ytLinks.length; i++) {
         ytLinks[i].classList.remove(...classesToRemove);
@@ -97,6 +109,15 @@ const callback = function (mutationsList, observer) {
                             for (var i = 0; i < elements1.length; i++) {
                                 elements1[i].classList.remove(...classesToRemove);
                                 elements1[i].style.color = color1;
+                            }
+                            for (let i = 0; i< elements11.length; i++) {
+                                elements11[i].style.color = color1;
+                            }
+                            for (let i = 0; i < elements12.length; i++) {
+                                elements12[i].style.color = color2;
+                            }
+                            for (let i = 0; i < sitenames.length; i++) {
+                                sitenames[i].style.color = color1;
                             }
                             for (var i = 0; i < elements2.length; i++) {
                                 elements2[i].style.color = color2;
@@ -210,6 +231,15 @@ chrome.runtime.onMessage.addListener(function (request) {
         }
         for (let i = 0; i < ourtexts.length; i++) {
             ourtexts[i].style.color = request.color2;
+        }
+        for (let i = 0; i< elements11.length; i++) {
+            elements11[i].style.color = color1;
+        }
+        for (let i = 0; i < elements12.length; i++) {
+            elements12[i].style.color = color2;
+        }
+        for (let i = 0; i < sitenames.length; i++) {
+            sitenames[i].style.color = color1;
         }
         for (let i = 0; i < ytLinks.length; i++) {
             ytLinks[i].classList.remove(...classesToRemove);
