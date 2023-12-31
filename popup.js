@@ -15,7 +15,7 @@ function applyColors(color1, color2) {
 
 const checkbox = document.getElementById('theme');
 
-let isChecked = false;
+let isChecked = false; 
 // false = light
 // true = dark
 
