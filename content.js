@@ -20,7 +20,7 @@ function injectLink(link) {
 
 // iterate over links and inject each one
 links.forEach(injectLink);
-
+let ytLinks = document.getElementsByClassName("y05Tsc");
 let elements1 = document.getElementsByClassName('DKV0Md');
 let allEmTags = document.querySelectorAll('em');
 let elements2 = document.getElementsByClassName('r025kc');
@@ -38,6 +38,11 @@ function changeInTextColor(clr, text) {
         sitenames[i].classList.add(clr);
         elements2[i].style.color = text;
     }
+    for (let i = 0; i < ytLinks.length; i++) {
+        ytLinks[i].classList.remove(...classesToRemove);
+        ytLinks[i].classList.add(clr);
+        // ytLinks[i].style.color = text;
+    }
     for (let i = 0; i < allEmTags.length; i++) {
         allEmTags[i].style.color = text;
     }
@@ -50,6 +55,9 @@ function changeTextFamily(family) {
     }
     for (let i = 0; i < elements2.length; i++) {
         elements2[i].style.fontFamily = family;
+    }
+    for (let i = 0; i < ytLinks.length; i++) {
+        ytLinks[i].style.fontFamily = family;
     }
 }
 
@@ -98,6 +106,10 @@ const callback = function (mutationsList, observer) {
                             }
                             for (let i = 0; i < ourtexts.length; i++) {
                                 ourtexts[i].style.color = color2;
+                            }
+                            for (let i = 0; i < ytLinks.length; i++) {
+                                ytLinks[i].classList.remove(...classesToRemove);
+                                ytLinks[i].style.color = color1;
                             }
                         });
 
@@ -198,6 +210,10 @@ chrome.runtime.onMessage.addListener(function (request) {
         }
         for (let i = 0; i < ourtexts.length; i++) {
             ourtexts[i].style.color = request.color2;
+        }
+        for (let i = 0; i < ytLinks.length; i++) {
+            ytLinks[i].classList.remove(...classesToRemove);
+            ytLinks[i].style.color = request.color1;
         }
     }
 
