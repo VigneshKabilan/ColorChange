@@ -43,6 +43,8 @@ function applyDarkMode() {
     document.getElementById('darkTheme').style.visibility = 'visible';
     document.getElementById('lightTheme').style.display = 'none';
     document.getElementById('lightTheme').style.visibility = 'hidden';
+    document.getElementsByClassName('power-switch')[0].style.setProperty('--color-invert', '#00ff00');
+    
 }
 
 // Function to apply light mode styles
@@ -57,6 +59,7 @@ function applyLightMode() {
     document.getElementById('lightTheme').style.visibility = 'visible';
     document.getElementById('darkTheme').style.display = 'none';
     document.getElementById('darkTheme').style.visibility = 'hidden';
+    document.getElementsByClassName('power-switch')[0].style.setProperty('--color-invert', '#000000');
 }
 
 //colors for Dark Mode
