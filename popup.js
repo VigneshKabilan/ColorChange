@@ -1,5 +1,16 @@
-chrome.storage.sync.set({isOn: true});
 let onOffButton = document.getElementById('on-off');
+
+let isEnable = onOffButton.classList.toggle('active');
+    if (isEnable) {
+        chrome.storage.sync.set({isOn: true});
+    } else {
+        chrome.storage.sync.set({isOn: false});
+        // Get the currently active tab
+        chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+            // Refresh the active tab
+            chrome.tabs.reload(tabs[0].id);
+        });
+    }
 
 onOffButton.addEventListener('click', function() {
     let isEnable = onOffButton.classList.toggle('active');

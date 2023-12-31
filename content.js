@@ -64,7 +64,6 @@ function changeInTextColor(clr, text) {
     for (let i = 0; i < ytLinks.length; i++) {
         ytLinks[i].classList.remove(...classesToRemove);
         ytLinks[i].classList.add(clr);
-        // ytLinks[i].style.color = text;
     } 
     for (let i = 0; i < allEmTags.length; i++) {
         allEmTags[i].style.color = text;
